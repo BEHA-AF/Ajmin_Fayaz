@@ -3,44 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ajmin Fayaz | UI/UX Designer</title>
+    <title>Ajmin Fayaz | Portfolio</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-        
-        body { font-family: 'Inter', sans-serif; margin: 0; background: #0a0a0a; }
-        
-        @keyframes marquee {
-          0% { transform: translateX(0%); }
-          100% { transform: translateX(-100%); }
-        }
-        @keyframes marquee2 {
-          0% { transform: translateX(100%); }
-          100% { transform: translateX(0%); }
-        }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; background-color: #0a0a0a; margin: 0; }
+        @keyframes marquee { 0% { transform: translateX(0%); } 100% { transform: translateX(-100%); } }
         .animate-marquee { animation: marquee 20s linear infinite; }
-        .animate-marquee2 { animation: marquee2 20s linear infinite; }
     </style>
 </head>
 <body>
     <div id="root"></div>
 
     <script type="text/babel">
-        // Destructure hooks from React
         const { useState, useEffect } = React;
-        
-        // Define Icons manually using Lucide's global object
-        const Icon = ({ name, ...props }) => {
-            const LucideIcon = lucide.icons[name];
-            return LucideIcon ? <lucide.icons[name] {...props} /> : null;
+
+        // Custom Icon Component to map Lucide names to components
+        const LucideIcon = ({ name, size = 24, className = "" }) => {
+            useEffect(() => {
+                lucide.createIcons();
+            }, []);
+            return <i data-lucide={name} style={{width: size, height: size}} className={className}></i>;
         };
 
         const Portfolio = () => {
@@ -56,84 +47,77 @@
                 {
                     title: "A Unified Travel Experience",
                     category: "Travel Booking Platform | 2026",
-                    challenge: "Solving \"tab fatigue\" where users switch between multiple sites to plan a trip.",
-                    solution: "A \"Visual-First\" approach using high-quality imagery and a unified navigation bar.",
-                    feature: "A transparent, linear booking flow that eliminates \"sticker shock\".",
+                    challenge: "Solving \"tab fatigue\" where users switch between multiple sites.",
+                    solution: "A \"Visual-First\" approach with a unified navigation bar.",
+                    feature: "A transparent booking flow that eliminates \"sticker shock\".",
                     image: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&q=80&w=1000",
                     accent: "from-blue-500/20 to-cyan-500/20"
                 },
                 {
                     title: "Lofio Real Estate",
                     category: "Premium Property Marketplace | 2026",
-                    challenge: "\"Viewing Fatigue\" and the lack of trust in remote property investment.",
-                    solution: "A high-trust platform focusing on virtual tours and verified agent interactions.",
-                    feature: "Granular rating systems and prominent Virtual Tour integration.",
+                    challenge: "Lack of trust in remote property investment.",
+                    solution: "High-trust platform focusing on virtual tours and verified agents.",
+                    feature: "Granular rating systems and Virtual Tour integration.",
                     image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&q=80&w=1000",
                     accent: "from-emerald-500/20 to-teal-500/20"
                 }
             ];
 
             return (
-                <div className="min-h-screen bg-[#0a0a0a] text-zinc-300 selection:bg-amber-500/30 selection:text-amber-200">
+                <div className="min-h-screen bg-[#0a0a0a] text-zinc-300">
                     {/* Navbar */}
-                    <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-[#0a0a0a]/80 backdrop-blur-md py-4 border-b border-white/5' : 'bg-transparent py-6'}`}>
+                    <nav className={`fixed w-full z-50 transition-all ${scrolled ? 'bg-[#0a0a0a]/90 backdrop-blur-md py-4' : 'bg-transparent py-6'}`}>
                         <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
-                            <div className="text-xl font-bold tracking-tighter text-white">AF<span className="text-amber-500">.</span></div>
-                            <div className="hidden md:flex gap-8 text-sm font-medium tracking-wide">
-                                <a href="#work" className="hover:text-amber-500">Work</a>
-                                <a href="#contact" className="hover:text-amber-500">Connect</a>
+                            <div className="text-xl font-bold text-white">AF<span className="text-amber-500">.</span></div>
+                            <div className="flex gap-6 items-center">
+                                <a href="#work" className="hover:text-amber-500 text-sm">Work</a>
+                                <button className="px-5 py-2 bg-white/10 hover:bg-white/20 text-white rounded-full text-sm">Let's Talk</button>
                             </div>
-                            <button className="px-5 py-2.5 bg-white/10 hover:bg-white/20 text-white rounded-full text-sm">Let's Talk</button>
                         </div>
                     </nav>
 
-                    {/* Hero Section */}
-                    <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
+                    {/* Hero */}
+                    <section className="relative h-screen flex items-center overflow-hidden">
                         <div className="absolute inset-0 z-0">
-                            {/* Make sure this image filename is exactly correct in your repo */}
-                            <img src="505489970_18067861196292786_20203999165502993578_n.jpg" alt="Ajmin Fayaz" className="w-full h-full object-cover opacity-60" />
-                            <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0a] via-[#0a0a0a]/80 to-transparent"></div>
+                            {/* Make sure this image is in your GitHub Repo! */}
+                            <img src="505489970_18067861196292786_20203999165502993578_n.jpg" className="w-full h-full object-cover opacity-40" />
+                            <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0a] via-[#0a0a0a]/60 to-transparent"></div>
                         </div>
-
-                        <div className="max-w-7xl mx-auto px-6 relative z-20 w-full">
-                            <div className="max-w-2xl">
-                                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-500 text-sm mb-6">
-                                    <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
-                                    Open to Relocation (UAE)
-                                </div>
-                                <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">Ajmin Fayaz</h1>
-                                <h2 className="text-2xl text-zinc-400 font-light mb-8">Strategic <span className="text-white font-medium">UI/UX Designer</span></h2>
-                                <a href="#work" className="inline-block px-8 py-4 bg-amber-600 hover:bg-amber-500 text-white rounded-full font-medium transition-all">View My Work</a>
-                            </div>
+                        <div className="relative z-10 px-12 max-w-3xl">
+                            <h1 className="text-6xl font-bold text-white mb-4">Ajmin Fayaz</h1>
+                            <p className="text-2xl text-zinc-400 mb-8">Strategic UI/UX Designer bridging luxury & digital.</p>
+                            <a href="#work" className="px-8 py-4 bg-amber-600 rounded-full text-white font-medium">Explore Work</a>
                         </div>
                     </section>
 
-                    {/* Projects Section */}
-                    <section id="work" className="py-32">
-                        <div className="max-w-7xl mx-auto px-6">
-                            <h2 className="text-4xl font-bold text-white mb-20">Selected Work</h2>
-                            <div className="space-y-32">
-                                {projects.map((p, i) => (
-                                    <div key={i} className={`flex flex-col md:flex-row gap-12 items-center ${i % 2 !== 0 ? 'md:flex-row-reverse' : ''}`}>
-                                        <div className="w-full md:w-1/2">
-                                            <img src={p.image} className="rounded-2xl border border-white/10 w-full aspect-video object-cover" />
-                                        </div>
-                                        <div className="w-full md:w-1/2">
-                                            <span className="text-amber-500 text-sm font-bold uppercase">{p.category}</span>
-                                            <h3 className="text-3xl font-bold text-white mt-2 mb-6">{p.title}</h3>
-                                            <p className="text-zinc-400 mb-4"><strong>Challenge:</strong> {p.challenge}</p>
-                                            <p className="text-zinc-400 mb-4"><strong>Solution:</strong> {p.solution}</p>
+                    {/* Work Section */}
+                    <section id="work" className="py-24 px-6 max-w-7xl mx-auto">
+                        <h2 className="text-4xl font-bold text-white mb-16">Selected Projects</h2>
+                        <div className="grid gap-20">
+                            {projects.map((p, i) => (
+                                <div key={i} className="flex flex-col md:flex-row gap-12 items-center">
+                                    <img src={p.image} className="w-full md:w-1/2 rounded-2xl grayscale hover:grayscale-0 transition-all duration-500" />
+                                    <div className="w-full md:w-1/2">
+                                        <span className="text-amber-500 font-bold text-sm tracking-widest">{p.category}</span>
+                                        <h3 className="text-3xl font-bold text-white mt-2 mb-6">{p.title}</h3>
+                                        <p className="text-zinc-400 mb-4">{p.challenge}</p>
+                                        <div className="flex items-center gap-2 text-white font-bold">
+                                            <LucideIcon name="award" size={18} className="text-amber-500" /> Key Feature: {p.feature}
                                         </div>
                                     </div>
-                                ))}
-                            </div>
+                                </div>
+                            ))}
                         </div>
                     </section>
 
                     {/* Footer */}
-                    <footer className="py-20 text-center border-t border-white/5">
-                        <h2 id="contact" className="text-3xl font-bold text-white mb-4">fayazajmin@gmail.com</h2>
-                        <p className="text-zinc-500">© 2026 Ajmin Fayaz. Designed with purpose.</p>
+                    <footer className="py-20 border-t border-white/5 text-center">
+                        <div className="flex justify-center gap-8 mb-8">
+                            <a href="mailto:fayazajmin@gmail.com"><LucideIcon name="mail" className="hover:text-amber-500" /></a>
+                            <a href="#"><LucideIcon name="linkedin" className="hover:text-amber-500" /></a>
+                        </div>
+                        <p className="text-zinc-600">© 2026 Ajmin Fayaz</p>
                     </footer>
                 </div>
             );
