@@ -2,304 +2,22 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    import React, { useState, useEffect } from 'react';
-import { Mail, Phone, Linkedin, ExternalLink, Award, ArrowRight, ChevronRight, Download } from 'lucide-react';
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajmin Fayaz | UI/UX Designer</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    
+    <script src="https://unpkg.com/lucide@latest"></script>
 
-const Portfolio = () => {
-  const [scrolled, setScrolled] = useState(false);
-
-  // Handle scroll for navbar styling
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const projects = [
-    {
-      title: "A Unified Travel Experience",
-      category: "Travel Booking Platform | 2026",
-      challenge: "Solving \"tab fatigue\" where users switch between multiple sites to plan a trip.",
-      solution: "A \"Visual-First\" approach using high-quality imagery and a unified navigation bar for Flights, Hotels, and Rentals.",
-      feature: "A transparent, linear booking flow that eliminates \"sticker shock\" during payment.",
-      image: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&q=80&w=1000",
-      accent: "from-blue-500/20 to-cyan-500/20"
-    },
-    {
-      title: "Lofio Real Estate",
-      category: "Premium Property Marketplace | 2026",
-      challenge: "\"Viewing Fatigue\" and the lack of trust in remote property investment.",
-      solution: "A high-trust platform focusing on virtual tours and verified agent interactions.",
-      feature: "Granular rating systems (Comfort, Cleanliness, Facilities) and prominent Virtual Tour integration for international buyers.",
-      image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&q=80&w=1000",
-      accent: "from-emerald-500/20 to-teal-500/20"
-    },
-    {
-      title: "Upside The Cinematic Booking",
-      category: "Movie Ticketing Web App | 2025",
-      challenge: "Transactional, cluttered movie apps that hide important filters.",
-      solution: "A premium dark-mode interface that mimics the cinema environment.",
-      feature: "A persistent \"Anchor Summary\" panel that updates prices in real-time as users add seats or snacks.",
-      image: "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&q=80&w=1000",
-      accent: "from-purple-500/20 to-pink-500/20"
-    },
-    {
-      title: "Choco Box",
-      category: "Premium Confectionery App | 2025",
-      challenge: "Translating the luxury, sensory experience of chocolate into a digital screen.",
-      solution: "An earthy, \"Milk Cream and Cocoa\" palette with high-impact product photography.",
-      feature: "\"Picked For Your Taste\" recommendation engine and a 3-step distraction-free checkout.",
-      image: "https://images.unsplash.com/photo-1542849491-9e2008fb5721?auto=format&fit=crop&q=80&w=1000",
-      accent: "from-orange-500/20 to-amber-900/40"
-    }
-  ];
-
-  const certificates = [
-    {
-      title: "Foundations of User Experience (UX) Design",
-      issuer: "Google (via Coursera)"
-    },
-    {
-      title: "Create and Design Digital Products using Canva",
-      issuer: "Coursera Project Network"
-    }
-  ];
-
-  return (
-    <div className="min-h-screen bg-[#0a0a0a] text-zinc-300 font-sans selection:bg-amber-500/30 selection:text-amber-200">
-      
-      {/* Navbar */}
-      <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-[#0a0a0a]/80 backdrop-blur-md py-4 border-b border-white/5' : 'bg-transparent py-6'}`}>
-        <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
-          <div className="text-xl font-bold tracking-tighter text-white">AF<span className="text-amber-500">.</span></div>
-          <div className="hidden md:flex gap-8 text-sm font-medium tracking-wide">
-            <a href="#work" className="hover:text-amber-500 transition-colors">Work</a>
-            <a href="#certificates" className="hover:text-amber-500 transition-colors">Certificates</a>
-            <a href="#contact" className="hover:text-amber-500 transition-colors">Connect</a>
-          </div>
-          <a href="#contact" className="px-5 py-2.5 bg-white/10 hover:bg-white/20 text-white rounded-full text-sm font-medium transition-all backdrop-blur-sm">
-            Let's Talk
-          </a>
-        </div>
-      </nav>
-
-      {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
-        {/* Background Image & Overlays */}
-        <div className="absolute inset-0 z-0">
-          <img 
-            src="505489970_18067861196292786_20203999165502993578_n.jpg" 
-            alt="Ajmin Fayaz" 
-            className="w-full h-full object-cover object-[70%_30%] md:object-center"
-          />
-          {/* Gradients to blend image into the dark theme and ensure text readability */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0a] via-[#0a0a0a]/80 to-transparent z-10"></div>
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-transparent z-10"></div>
-          <div className="absolute inset-0 bg-amber-900/10 mix-blend-overlay z-10"></div>
-        </div>
-
-        <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-20 w-full">
-          <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-500 text-sm font-medium mb-6">
-              <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
-              Open to Relocation (UAE)
-            </div>
-            
-            <h1 className="text-5xl md:text-7xl font-bold text-white tracking-tight leading-[1.1] mb-6">
-              Ajmin Fayaz
-            </h1>
-            <h2 className="text-2xl md:text-3xl text-zinc-400 font-light mb-8">
-              Strategic <span className="text-white font-medium">UI/UX Designer</span> bridging luxury experiences & digital interfaces.
-            </h2>
-            
-            <p className="text-lg text-zinc-400 leading-relaxed mb-10 max-w-xl">
-              With 2+ years of independent experience, I specialize in solving complex user behaviors through innovative, high-fidelity design. Expert in creating immersive dark-mode interfaces, high-conversion e-commerce flows, and unified experiences.
-            </p>
-            
-            <div className="flex flex-wrap gap-4">
-              <a href="#work" className="px-8 py-4 bg-amber-600 hover:bg-amber-500 text-white rounded-full font-medium transition-all flex items-center gap-2 group">
-                View My Work
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </a>
-              <a href="#contact" className="px-8 py-4 bg-white/5 hover:bg-white/10 text-white border border-white/10 rounded-full font-medium transition-all flex items-center gap-2">
-                Get in Touch
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Skills Marquee (Optional extra touch based on resume) */}
-      <div className="w-full py-8 border-y border-white/5 bg-white/[0.02] overflow-hidden whitespace-nowrap flex relative z-20">
-        <div className="animate-[marquee_20s_linear_infinite] flex gap-12 text-sm font-medium tracking-widest uppercase text-zinc-500">
-          <span>Mastery of Auto Layout</span>
-          <span>•</span>
-          <span>Component Properties</span>
-          <span>•</span>
-          <span>Responsive Design</span>
-          <span>•</span>
-          <span>Interactive Prototyping</span>
-          <span>•</span>
-          <span>Visual Design</span>
-          <span>•</span>
-          <span>Figma Expert</span>
-          <span>•</span>
-        </div>
-        <div className="absolute top-0 animate-[marquee2_20s_linear_infinite] flex gap-12 text-sm font-medium tracking-widest uppercase text-zinc-500">
-          <span>Mastery of Auto Layout</span>
-          <span>•</span>
-          <span>Component Properties</span>
-          <span>•</span>
-          <span>Responsive Design</span>
-          <span>•</span>
-          <span>Interactive Prototyping</span>
-          <span>•</span>
-          <span>Visual Design</span>
-          <span>•</span>
-          <span>Figma Expert</span>
-          <span>•</span>
-        </div>
-      </div>
-
-      {/* Projects Section */}
-      <section id="work" className="py-32 relative z-20">
-        <div className="max-w-7xl mx-auto px-6 md:px-12">
-          <div className="mb-20">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Selected Work</h2>
-            <p className="text-zinc-400 text-lg max-w-xl">A showcase of unified experiences, immersive discovery, and high-conversion interfaces.</p>
-          </div>
-
-          <div className="space-y-32">
-            {projects.map((project, index) => (
-              <div key={index} className={`flex flex-col md:flex-row gap-12 lg:gap-20 items-center ${index % 2 !== 0 ? 'md:flex-row-reverse' : ''}`}>
-                
-                {/* Thumbnail */}
-                <div className="w-full md:w-1/2 group">
-                  <div className="relative rounded-2xl overflow-hidden bg-zinc-900 aspect-[4/3] transform transition-transform duration-700 group-hover:scale-[1.02]">
-                    <div className={`absolute inset-0 bg-gradient-to-tr ${project.accent} opacity-40 mix-blend-overlay z-10 transition-opacity duration-500 group-hover:opacity-20`}></div>
-                    <img 
-                      src={project.image} 
-                      alt={project.title} 
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 border border-white/10 rounded-2xl z-20 pointer-events-none"></div>
-                  </div>
-                </div>
-
-                {/* Description */}
-                <div className="w-full md:w-1/2 flex flex-col justify-center">
-                  <div className="text-amber-500 text-sm font-semibold tracking-wider uppercase mb-3">
-                    {project.category}
-                  </div>
-                  <h3 className="text-3xl lg:text-4xl font-bold text-white mb-8 leading-tight">
-                    {project.title}
-                  </h3>
-                  
-                  <div className="space-y-6 text-zinc-400">
-                    <div>
-                      <strong className="text-zinc-200 block mb-1">The Challenge</strong>
-                      <p>{project.challenge}</p>
-                    </div>
-                    <div>
-                      <strong className="text-zinc-200 block mb-1">The Solution</strong>
-                      <p>{project.solution}</p>
-                    </div>
-                    <div className="p-4 rounded-xl bg-white/5 border border-white/5 relative overflow-hidden">
-                      <div className="absolute left-0 top-0 bottom-0 w-1 bg-amber-500"></div>
-                      <strong className="text-white flex items-center gap-2 mb-2">
-                        <Award className="w-4 h-4 text-amber-500" /> Key Feature
-                      </strong>
-                      <p className="text-sm text-zinc-300">{project.feature}</p>
-                    </div>
-                  </div>
-
-                  <div className="mt-10">
-                    <button className="flex items-center gap-2 text-white font-medium hover:text-amber-500 transition-colors group">
-                      View Case Study
-                      <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                    </button>
-                  </div>
-                </div>
-
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Certificates Section */}
-      <section id="certificates" className="py-32 bg-zinc-900/30 relative z-20">
-        <div className="max-w-7xl mx-auto px-6 md:px-12">
-          <div className="mb-16 md:text-center">
-            <h2 className="text-4xl font-bold text-white mb-4">Certifications</h2>
-            <p className="text-zinc-400 text-lg">Continuous learning and professional development.</p>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            {certificates.map((cert, index) => (
-              <div key={index} className="p-8 rounded-2xl bg-zinc-900/50 border border-white/5 hover:border-amber-500/30 transition-colors group flex items-start gap-4">
-                <div className="p-3 rounded-lg bg-amber-500/10 text-amber-500 group-hover:bg-amber-500 group-hover:text-white transition-colors">
-                  <Award className="w-6 h-6" />
-                </div>
-                <div>
-                  <h3 className="text-lg font-bold text-white mb-2 leading-tight">{cert.title}</h3>
-                  <p className="text-zinc-500 text-sm">{cert.issuer}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Connect Section */}
-      <section id="contact" className="py-32 relative z-20 border-t border-white/5">
-        <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col md:flex-row gap-20 items-start justify-between">
-          
-          <div className="max-w-xl">
-            <h2 className="text-5xl md:text-7xl font-bold text-white mb-6 tracking-tight">
-              Let's create something <span className="text-amber-500">extraordinary.</span>
-            </h2>
-            <p className="text-xl text-zinc-400 mb-10">
-              Currently based in Kollam, India and open to relocation opportunities (UAE). I'm always looking for new challenges.
-            </p>
-            
-            <a href="mailto:fayazajmin@gmail.com" className="inline-flex items-center gap-3 text-2xl md:text-3xl text-white hover:text-amber-500 font-medium transition-colors border-b-2 border-transparent hover:border-amber-500 pb-1 mb-8">
-              <Mail className="w-8 h-8" />
-              fayazajmin@gmail.com
-            </a>
-          </div>
-
-          <div className="flex flex-col gap-6 w-full md:w-auto">
-            <h3 className="text-sm font-semibold text-zinc-500 tracking-wider uppercase mb-2">Connect with me</h3>
-            
-            <a href="tel:+918089449893" className="flex items-center gap-4 text-zinc-300 hover:text-white transition-colors p-4 rounded-xl hover:bg-white/5 border border-transparent hover:border-white/5">
-              <div className="p-2 rounded-full bg-zinc-800"><Phone className="w-5 h-5" /></div>
-              <span className="text-lg">+91 8089449893</span>
-            </a>
-            
-            <a href="https://linkedin.com/in/ajmin-fayaz" target="_blank" rel="noreferrer" className="flex items-center gap-4 text-zinc-300 hover:text-white transition-colors p-4 rounded-xl hover:bg-white/5 border border-transparent hover:border-white/5">
-              <div className="p-2 rounded-full bg-zinc-800"><Linkedin className="w-5 h-5" /></div>
-              <span className="text-lg">linkedin.com/in/ajmin-fayaz</span>
-            </a>
-
-            <a href="https://beha-af.github.io/my-portfolio/" target="_blank" rel="noreferrer" className="flex items-center gap-4 text-zinc-300 hover:text-white transition-colors p-4 rounded-xl hover:bg-white/5 border border-transparent hover:border-white/5">
-              <div className="p-2 rounded-full bg-zinc-800"><ExternalLink className="w-5 h-5" /></div>
-              <span className="text-lg">Online Portfolio</span>
-            </a>
-          </div>
-
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="py-8 text-center text-zinc-600 text-sm border-t border-white/5 relative z-20">
-        <p>© {new Date().getFullYear()} Ajmin Fayaz. Designed with purpose.</p>
-      </footer>
-
-      {/* Styles for the custom marquee */}
-      <style dangerouslySetInnerHTML={{__html: `
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        body { font-family: 'Inter', sans-serif; margin: 0; background: #0a0a0a; }
+        
         @keyframes marquee {
           0% { transform: translateX(0%); }
           100% { transform: translateX(-100%); }
@@ -308,10 +26,121 @@ const Portfolio = () => {
           0% { transform: translateX(100%); }
           100% { transform: translateX(0%); }
         }
-      `}} />
-    </div>
-  );
-};
+        .animate-marquee { animation: marquee 20s linear infinite; }
+        .animate-marquee2 { animation: marquee2 20s linear infinite; }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
 
-export default Portfolio;
+    <script type="text/babel">
+        // Destructure hooks from React
+        const { useState, useEffect } = React;
+        
+        // Define Icons manually using Lucide's global object
+        const Icon = ({ name, ...props }) => {
+            const LucideIcon = lucide.icons[name];
+            return LucideIcon ? <lucide.icons[name] {...props} /> : null;
+        };
 
+        const Portfolio = () => {
+            const [scrolled, setScrolled] = useState(false);
+
+            useEffect(() => {
+                const handleScroll = () => setScrolled(window.scrollY > 50);
+                window.addEventListener('scroll', handleScroll);
+                return () => window.removeEventListener('scroll', handleScroll);
+            }, []);
+
+            const projects = [
+                {
+                    title: "A Unified Travel Experience",
+                    category: "Travel Booking Platform | 2026",
+                    challenge: "Solving \"tab fatigue\" where users switch between multiple sites to plan a trip.",
+                    solution: "A \"Visual-First\" approach using high-quality imagery and a unified navigation bar.",
+                    feature: "A transparent, linear booking flow that eliminates \"sticker shock\".",
+                    image: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&q=80&w=1000",
+                    accent: "from-blue-500/20 to-cyan-500/20"
+                },
+                {
+                    title: "Lofio Real Estate",
+                    category: "Premium Property Marketplace | 2026",
+                    challenge: "\"Viewing Fatigue\" and the lack of trust in remote property investment.",
+                    solution: "A high-trust platform focusing on virtual tours and verified agent interactions.",
+                    feature: "Granular rating systems and prominent Virtual Tour integration.",
+                    image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&q=80&w=1000",
+                    accent: "from-emerald-500/20 to-teal-500/20"
+                }
+            ];
+
+            return (
+                <div className="min-h-screen bg-[#0a0a0a] text-zinc-300 selection:bg-amber-500/30 selection:text-amber-200">
+                    {/* Navbar */}
+                    <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-[#0a0a0a]/80 backdrop-blur-md py-4 border-b border-white/5' : 'bg-transparent py-6'}`}>
+                        <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
+                            <div className="text-xl font-bold tracking-tighter text-white">AF<span className="text-amber-500">.</span></div>
+                            <div className="hidden md:flex gap-8 text-sm font-medium tracking-wide">
+                                <a href="#work" className="hover:text-amber-500">Work</a>
+                                <a href="#contact" className="hover:text-amber-500">Connect</a>
+                            </div>
+                            <button className="px-5 py-2.5 bg-white/10 hover:bg-white/20 text-white rounded-full text-sm">Let's Talk</button>
+                        </div>
+                    </nav>
+
+                    {/* Hero Section */}
+                    <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
+                        <div className="absolute inset-0 z-0">
+                            {/* Make sure this image filename is exactly correct in your repo */}
+                            <img src="505489970_18067861196292786_20203999165502993578_n.jpg" alt="Ajmin Fayaz" className="w-full h-full object-cover opacity-60" />
+                            <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0a] via-[#0a0a0a]/80 to-transparent"></div>
+                        </div>
+
+                        <div className="max-w-7xl mx-auto px-6 relative z-20 w-full">
+                            <div className="max-w-2xl">
+                                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-500 text-sm mb-6">
+                                    <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
+                                    Open to Relocation (UAE)
+                                </div>
+                                <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">Ajmin Fayaz</h1>
+                                <h2 className="text-2xl text-zinc-400 font-light mb-8">Strategic <span className="text-white font-medium">UI/UX Designer</span></h2>
+                                <a href="#work" className="inline-block px-8 py-4 bg-amber-600 hover:bg-amber-500 text-white rounded-full font-medium transition-all">View My Work</a>
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* Projects Section */}
+                    <section id="work" className="py-32">
+                        <div className="max-w-7xl mx-auto px-6">
+                            <h2 className="text-4xl font-bold text-white mb-20">Selected Work</h2>
+                            <div className="space-y-32">
+                                {projects.map((p, i) => (
+                                    <div key={i} className={`flex flex-col md:flex-row gap-12 items-center ${i % 2 !== 0 ? 'md:flex-row-reverse' : ''}`}>
+                                        <div className="w-full md:w-1/2">
+                                            <img src={p.image} className="rounded-2xl border border-white/10 w-full aspect-video object-cover" />
+                                        </div>
+                                        <div className="w-full md:w-1/2">
+                                            <span className="text-amber-500 text-sm font-bold uppercase">{p.category}</span>
+                                            <h3 className="text-3xl font-bold text-white mt-2 mb-6">{p.title}</h3>
+                                            <p className="text-zinc-400 mb-4"><strong>Challenge:</strong> {p.challenge}</p>
+                                            <p className="text-zinc-400 mb-4"><strong>Solution:</strong> {p.solution}</p>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* Footer */}
+                    <footer className="py-20 text-center border-t border-white/5">
+                        <h2 id="contact" className="text-3xl font-bold text-white mb-4">fayazajmin@gmail.com</h2>
+                        <p className="text-zinc-500">© 2026 Ajmin Fayaz. Designed with purpose.</p>
+                    </footer>
+                </div>
+            );
+        };
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<Portfolio />);
+    </script>
+</body>
+</html>
