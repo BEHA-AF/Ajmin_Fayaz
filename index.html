@@ -15,30 +15,11 @@
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-        
-        body { 
-            font-family: 'Inter', sans-serif; 
-            margin: 0; 
-            background: #0a0a0a; 
-            overflow-x: hidden;
-        }
-
-        /* Custom Scrollbar */
+        body { font-family: 'Inter', sans-serif; margin: 0; background: #0a0a0a; overflow-x: hidden; scroll-behavior: smooth; }
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #0a0a0a; }
         ::-webkit-scrollbar-thumb { background: #27272a; border-radius: 10px; }
         ::-webkit-scrollbar-thumb:hover { background: #f59e0b; }
-
-        @keyframes marquee {
-          0% { transform: translateX(0%); }
-          100% { transform: translateX(-100%); }
-        }
-        @keyframes marquee2 {
-          0% { transform: translateX(100%); }
-          100% { transform: translateX(0%); }
-        }
-        .animate-marquee { animation: marquee 20s linear infinite; }
-        .animate-marquee2 { animation: marquee2 20s linear infinite; }
     </style>
 </head>
 <body>
@@ -47,12 +28,9 @@
     <script type="text/babel">
         const { useState, useEffect } = React;
 
-        // Helper component to render Lucide icons in a browser environment
         const Icon = ({ name, className = "", size = 24 }) => {
             useEffect(() => {
-                if (window.lucide) {
-                    window.lucide.createIcons();
-                }
+                if (window.lucide) window.lucide.createIcons();
             }, []);
             return <i data-lucide={name} className={className} style={{ width: size, height: size }}></i>;
         };
@@ -70,29 +48,26 @@
                 {
                     title: "A Unified Travel Experience",
                     category: "Travel Booking Platform | 2026",
-                    challenge: "Solving \"tab fatigue\" where users switch between multiple sites to plan a trip.",
-                    solution: "A \"Visual-First\" approach using high-quality imagery and a unified navigation bar.",
+                    challenge: "Solving \"tab fatigue\" where users switch between multiple sites.",
+                    solution: "A \"Visual-First\" approach using a unified navigation bar.",
                     feature: "A transparent booking flow that eliminates \"sticker shock\".",
                     image: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&q=80&w=1000",
-                    accent: "from-blue-500/20 to-cyan-500/20"
                 },
                 {
                     title: "Lofio Real Estate",
                     category: "Premium Property Marketplace | 2026",
-                    challenge: "Viewing Fatigue and the lack of trust in remote property investment.",
-                    solution: "A high-trust platform focusing on virtual tours and verified agent interactions.",
-                    feature: "Granular rating systems and prominent Virtual Tour integration.",
+                    challenge: "Lack of trust in remote property investment.",
+                    solution: "Focusing on virtual tours and verified agent interactions.",
+                    feature: "Granular rating systems and Virtual Tour integration.",
                     image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&q=80&w=1000",
-                    accent: "from-emerald-500/20 to-teal-500/20"
                 },
                 {
                     title: "Upside The Cinematic Booking",
                     category: "Movie Ticketing Web App | 2025",
-                    challenge: "Transactional, cluttered movie apps that hide important filters.",
-                    solution: "A premium dark-mode interface that mimics the cinema environment.",
-                    feature: "A persistent \"Anchor Summary\" panel that updates prices in real-time.",
+                    challenge: "Transactional, cluttered movie apps.",
+                    solution: "A premium dark-mode interface mimicking the cinema.",
+                    feature: "A persistent \"Anchor Summary\" panel for real-time pricing.",
                     image: "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&q=80&w=1000",
-                    accent: "from-purple-500/20 to-pink-500/20"
                 }
             ];
 
@@ -102,34 +77,32 @@
             ];
 
             return (
-                <div className="min-h-screen bg-[#0a0a0a] text-zinc-300 selection:bg-amber-500/30 selection:text-amber-200">
+                <div className="min-h-screen bg-[#0a0a0a] text-zinc-300 selection:bg-amber-500/30">
                     
-                    {/* Navbar */}
-                    <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-[#0a0a0a]/80 backdrop-blur-md py-4 border-b border-white/5' : 'bg-transparent py-6'}`}>
+                    <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-[#0a0a0a]/90 backdrop-blur-md py-4' : 'bg-transparent py-6'}`}>
                         <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
-                            <div className="text-xl font-bold tracking-tighter text-white">AF<span className="text-amber-500">.</span></div>
+                            <div className="text-xl font-bold text-white">AF<span className="text-amber-500">.</span></div>
                             <div className="hidden md:flex gap-8 text-sm font-medium">
-                                <a href="#work" className="hover:text-amber-500 transition-colors">Work</a>
-                                <a href="#certificates" className="hover:text-amber-500 transition-colors">Certificates</a>
-                                <a href="#contact" className="hover:text-amber-500 transition-colors">Connect</a>
+                                <a href="#work" className="hover:text-amber-500">Work</a>
+                                <a href="#certificates" className="hover:text-amber-500">Certificates</a>
+                                <a href="#contact" className="hover:text-amber-500">Connect</a>
                             </div>
-                            <a href="#contact" className="px-5 py-2 bg-white/10 hover:bg-white/20 text-white rounded-full text-sm backdrop-blur-sm transition-all">
-                                Let's Talk
-                            </a>
+                            <a href="#contact" className="px-5 py-2 bg-white/10 hover:bg-white/20 text-white rounded-full text-sm">Let's Talk</a>
                         </div>
                     </nav>
 
-                    {/* Hero Section */}
                     <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
                         <div className="absolute inset-0 z-0">
-                            <img src="505489970_18067861196292786_20203999165502993578_n.jpg" className="w-full h-full object-cover object-center opacity-50" />
+                            {/* --- THIS IS THE HERO IMAGE LINE --- */}
+                            <img src="./505489970_18067861196292786_20203999165502993578_n.jpg" className="w-full h-full object-cover object-center opacity-50" />
+                            {/* ----------------------------------- */}
                             <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0a] via-[#0a0a0a]/80 to-transparent"></div>
                             <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-transparent"></div>
                         </div>
 
                         <div className="max-w-7xl mx-auto px-6 relative z-20 w-full">
                             <div className="max-w-2xl">
-                                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-500 text-sm font-medium mb-6">
+                                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-500 text-sm mb-6">
                                     <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
                                     Open to Relocation (UAE)
                                 </div>
@@ -137,16 +110,13 @@
                                 <h2 className="text-2xl md:text-3xl text-zinc-400 font-light mb-8">
                                     Strategic <span className="text-white font-medium">UI/UX Designer</span> bridging luxury & digital.
                                 </h2>
-                                <div className="flex gap-4">
-                                    <a href="#work" className="px-8 py-4 bg-amber-600 hover:bg-amber-500 text-white rounded-full font-medium transition-all flex items-center gap-2">
-                                        View My Work <Icon name="arrow-right" size={16} />
-                                    </a>
-                                </div>
+                                <a href="#work" className="px-8 py-4 bg-amber-600 hover:bg-amber-500 text-white rounded-full font-medium transition-all inline-flex items-center gap-2">
+                                    View My Work <Icon name="arrow-right" size={16} />
+                                </a>
                             </div>
                         </div>
                     </section>
 
-                    {/* Projects */}
                     <section id="work" className="py-32 px-6 max-w-7xl mx-auto">
                         <h2 className="text-4xl font-bold text-white mb-20">Selected Work</h2>
                         <div className="space-y-32">
@@ -171,7 +141,6 @@
                         </div>
                     </section>
 
-                    {/* Certificates */}
                     <section id="certificates" className="py-24 bg-zinc-900/30">
                         <div className="max-w-7xl mx-auto px-6">
                             <h2 className="text-3xl font-bold text-white mb-12 text-center">Certifications</h2>
@@ -189,7 +158,6 @@
                         </div>
                     </section>
 
-                    {/* Contact */}
                     <footer id="contact" className="py-32 border-t border-white/5">
                         <div className="max-w-7xl mx-auto px-6 text-center">
                             <h2 className="text-5xl font-bold text-white mb-8">Let's Talk.</h2>
@@ -197,8 +165,8 @@
                                 fayazajmin@gmail.com
                             </a>
                             <div className="flex justify-center gap-6 mt-12">
-                                <a href="https://linkedin.com/in/ajmin-fayaz" className="hover:text-white transition-colors"><Icon name="linkedin" /></a>
-                                <a href="tel:+918089449893" className="hover:text-white transition-colors"><Icon name="phone" /></a>
+                                <a href="https://linkedin.com/in/ajmin-fayaz" className="hover:text-white"><Icon name="linkedin" /></a>
+                                <a href="tel:+918089449893" className="hover:text-white"><Icon name="phone" /></a>
                             </div>
                             <p className="mt-20 text-zinc-600 text-sm">© 2026 Ajmin Fayaz</p>
                         </div>
