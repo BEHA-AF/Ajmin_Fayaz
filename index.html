@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ajmin Fayaz | Portfolio</title>
+    <title>Ajmin Fayaz | UI/UX Designer Portfolio</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     
@@ -14,10 +14,31 @@
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
-        body { font-family: 'Inter', sans-serif; background-color: #0a0a0a; margin: 0; }
-        @keyframes marquee { 0% { transform: translateX(0%); } 100% { transform: translateX(-100%); } }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        body { 
+            font-family: 'Inter', sans-serif; 
+            margin: 0; 
+            background: #0a0a0a; 
+            overflow-x: hidden;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0a0a0a; }
+        ::-webkit-scrollbar-thumb { background: #27272a; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #f59e0b; }
+
+        @keyframes marquee {
+          0% { transform: translateX(0%); }
+          100% { transform: translateX(-100%); }
+        }
+        @keyframes marquee2 {
+          0% { transform: translateX(100%); }
+          100% { transform: translateX(0%); }
+        }
         .animate-marquee { animation: marquee 20s linear infinite; }
+        .animate-marquee2 { animation: marquee2 20s linear infinite; }
     </style>
 </head>
 <body>
@@ -26,12 +47,14 @@
     <script type="text/babel">
         const { useState, useEffect } = React;
 
-        // Custom Icon Component to map Lucide names to components
-        const LucideIcon = ({ name, size = 24, className = "" }) => {
+        // Helper component to render Lucide icons in a browser environment
+        const Icon = ({ name, className = "", size = 24 }) => {
             useEffect(() => {
-                lucide.createIcons();
+                if (window.lucide) {
+                    window.lucide.createIcons();
+                }
             }, []);
-            return <i data-lucide={name} style={{width: size, height: size}} className={className}></i>;
+            return <i data-lucide={name} className={className} style={{ width: size, height: size }}></i>;
         };
 
         const Portfolio = () => {
@@ -47,8 +70,8 @@
                 {
                     title: "A Unified Travel Experience",
                     category: "Travel Booking Platform | 2026",
-                    challenge: "Solving \"tab fatigue\" where users switch between multiple sites.",
-                    solution: "A \"Visual-First\" approach with a unified navigation bar.",
+                    challenge: "Solving \"tab fatigue\" where users switch between multiple sites to plan a trip.",
+                    solution: "A \"Visual-First\" approach using high-quality imagery and a unified navigation bar.",
                     feature: "A transparent booking flow that eliminates \"sticker shock\".",
                     image: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&q=80&w=1000",
                     accent: "from-blue-500/20 to-cyan-500/20"
@@ -56,54 +79,91 @@
                 {
                     title: "Lofio Real Estate",
                     category: "Premium Property Marketplace | 2026",
-                    challenge: "Lack of trust in remote property investment.",
-                    solution: "High-trust platform focusing on virtual tours and verified agents.",
-                    feature: "Granular rating systems and Virtual Tour integration.",
+                    challenge: "Viewing Fatigue and the lack of trust in remote property investment.",
+                    solution: "A high-trust platform focusing on virtual tours and verified agent interactions.",
+                    feature: "Granular rating systems and prominent Virtual Tour integration.",
                     image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&q=80&w=1000",
                     accent: "from-emerald-500/20 to-teal-500/20"
+                },
+                {
+                    title: "Upside The Cinematic Booking",
+                    category: "Movie Ticketing Web App | 2025",
+                    challenge: "Transactional, cluttered movie apps that hide important filters.",
+                    solution: "A premium dark-mode interface that mimics the cinema environment.",
+                    feature: "A persistent \"Anchor Summary\" panel that updates prices in real-time.",
+                    image: "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&q=80&w=1000",
+                    accent: "from-purple-500/20 to-pink-500/20"
                 }
             ];
 
+            const certificates = [
+                { title: "Foundations of User Experience (UX) Design", issuer: "Google (via Coursera)" },
+                { title: "Create and Design Digital Products using Canva", issuer: "Coursera Project Network" }
+            ];
+
             return (
-                <div className="min-h-screen bg-[#0a0a0a] text-zinc-300">
+                <div className="min-h-screen bg-[#0a0a0a] text-zinc-300 selection:bg-amber-500/30 selection:text-amber-200">
+                    
                     {/* Navbar */}
-                    <nav className={`fixed w-full z-50 transition-all ${scrolled ? 'bg-[#0a0a0a]/90 backdrop-blur-md py-4' : 'bg-transparent py-6'}`}>
+                    <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-[#0a0a0a]/80 backdrop-blur-md py-4 border-b border-white/5' : 'bg-transparent py-6'}`}>
                         <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
-                            <div className="text-xl font-bold text-white">AF<span className="text-amber-500">.</span></div>
-                            <div className="flex gap-6 items-center">
-                                <a href="#work" className="hover:text-amber-500 text-sm">Work</a>
-                                <button className="px-5 py-2 bg-white/10 hover:bg-white/20 text-white rounded-full text-sm">Let's Talk</button>
+                            <div className="text-xl font-bold tracking-tighter text-white">AF<span className="text-amber-500">.</span></div>
+                            <div className="hidden md:flex gap-8 text-sm font-medium">
+                                <a href="#work" className="hover:text-amber-500 transition-colors">Work</a>
+                                <a href="#certificates" className="hover:text-amber-500 transition-colors">Certificates</a>
+                                <a href="#contact" className="hover:text-amber-500 transition-colors">Connect</a>
                             </div>
+                            <a href="#contact" className="px-5 py-2 bg-white/10 hover:bg-white/20 text-white rounded-full text-sm backdrop-blur-sm transition-all">
+                                Let's Talk
+                            </a>
                         </div>
                     </nav>
 
-                    {/* Hero */}
-                    <section className="relative h-screen flex items-center overflow-hidden">
+                    {/* Hero Section */}
+                    <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
                         <div className="absolute inset-0 z-0">
-                            {/* Make sure this image is in your GitHub Repo! */}
-                            <img src="505489970_18067861196292786_20203999165502993578_n.jpg" className="w-full h-full object-cover opacity-40" />
-                            <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0a] via-[#0a0a0a]/60 to-transparent"></div>
+                            <img src="505489970_18067861196292786_20203999165502993578_n.jpg" className="w-full h-full object-cover object-center opacity-50" />
+                            <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0a] via-[#0a0a0a]/80 to-transparent"></div>
+                            <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-transparent"></div>
                         </div>
-                        <div className="relative z-10 px-12 max-w-3xl">
-                            <h1 className="text-6xl font-bold text-white mb-4">Ajmin Fayaz</h1>
-                            <p className="text-2xl text-zinc-400 mb-8">Strategic UI/UX Designer bridging luxury & digital.</p>
-                            <a href="#work" className="px-8 py-4 bg-amber-600 rounded-full text-white font-medium">Explore Work</a>
+
+                        <div className="max-w-7xl mx-auto px-6 relative z-20 w-full">
+                            <div className="max-w-2xl">
+                                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-500 text-sm font-medium mb-6">
+                                    <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
+                                    Open to Relocation (UAE)
+                                </div>
+                                <h1 className="text-6xl md:text-8xl font-bold text-white mb-6">Ajmin Fayaz</h1>
+                                <h2 className="text-2xl md:text-3xl text-zinc-400 font-light mb-8">
+                                    Strategic <span className="text-white font-medium">UI/UX Designer</span> bridging luxury & digital.
+                                </h2>
+                                <div className="flex gap-4">
+                                    <a href="#work" className="px-8 py-4 bg-amber-600 hover:bg-amber-500 text-white rounded-full font-medium transition-all flex items-center gap-2">
+                                        View My Work <Icon name="arrow-right" size={16} />
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </section>
 
-                    {/* Work Section */}
-                    <section id="work" className="py-24 px-6 max-w-7xl mx-auto">
-                        <h2 className="text-4xl font-bold text-white mb-16">Selected Projects</h2>
-                        <div className="grid gap-20">
-                            {projects.map((p, i) => (
-                                <div key={i} className="flex flex-col md:flex-row gap-12 items-center">
-                                    <img src={p.image} className="w-full md:w-1/2 rounded-2xl grayscale hover:grayscale-0 transition-all duration-500" />
+                    {/* Projects */}
+                    <section id="work" className="py-32 px-6 max-w-7xl mx-auto">
+                        <h2 className="text-4xl font-bold text-white mb-20">Selected Work</h2>
+                        <div className="space-y-32">
+                            {projects.map((project, index) => (
+                                <div key={index} className={`flex flex-col md:flex-row gap-12 items-center ${index % 2 !== 0 ? 'md:flex-row-reverse' : ''}`}>
+                                    <div className="w-full md:w-1/2 group overflow-hidden rounded-2xl">
+                                        <img src={project.image} className="w-full aspect-video object-cover transition-transform duration-700 group-hover:scale-110" />
+                                    </div>
                                     <div className="w-full md:w-1/2">
-                                        <span className="text-amber-500 font-bold text-sm tracking-widest">{p.category}</span>
-                                        <h3 className="text-3xl font-bold text-white mt-2 mb-6">{p.title}</h3>
-                                        <p className="text-zinc-400 mb-4">{p.challenge}</p>
-                                        <div className="flex items-center gap-2 text-white font-bold">
-                                            <LucideIcon name="award" size={18} className="text-amber-500" /> Key Feature: {p.feature}
+                                        <div className="text-amber-500 text-sm font-bold uppercase mb-2">{project.category}</div>
+                                        <h3 className="text-3xl font-bold text-white mb-6">{project.title}</h3>
+                                        <p className="text-zinc-400 mb-6">{project.challenge}</p>
+                                        <div className="p-4 bg-white/5 border-l-4 border-amber-500 rounded-r-xl">
+                                            <div className="flex items-center gap-2 text-white font-bold mb-1">
+                                                <Icon name="award" size={16} className="text-amber-500" /> Key Feature
+                                            </div>
+                                            <p className="text-sm">{project.feature}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -111,13 +171,37 @@
                         </div>
                     </section>
 
-                    {/* Footer */}
-                    <footer className="py-20 border-t border-white/5 text-center">
-                        <div className="flex justify-center gap-8 mb-8">
-                            <a href="mailto:fayazajmin@gmail.com"><LucideIcon name="mail" className="hover:text-amber-500" /></a>
-                            <a href="#"><LucideIcon name="linkedin" className="hover:text-amber-500" /></a>
+                    {/* Certificates */}
+                    <section id="certificates" className="py-24 bg-zinc-900/30">
+                        <div className="max-w-7xl mx-auto px-6">
+                            <h2 className="text-3xl font-bold text-white mb-12 text-center">Certifications</h2>
+                            <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+                                {certificates.map((cert, i) => (
+                                    <div key={i} className="p-6 rounded-xl bg-zinc-900 border border-white/5 flex gap-4">
+                                        <Icon name="award" className="text-amber-500" />
+                                        <div>
+                                            <h4 className="text-white font-bold">{cert.title}</h4>
+                                            <p className="text-sm text-zinc-500">{cert.issuer}</p>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
                         </div>
-                        <p className="text-zinc-600">© 2026 Ajmin Fayaz</p>
+                    </section>
+
+                    {/* Contact */}
+                    <footer id="contact" className="py-32 border-t border-white/5">
+                        <div className="max-w-7xl mx-auto px-6 text-center">
+                            <h2 className="text-5xl font-bold text-white mb-8">Let's Talk.</h2>
+                            <a href="mailto:fayazajmin@gmail.com" className="text-2xl text-amber-500 hover:text-amber-400 underline transition-colors">
+                                fayazajmin@gmail.com
+                            </a>
+                            <div className="flex justify-center gap-6 mt-12">
+                                <a href="https://linkedin.com/in/ajmin-fayaz" className="hover:text-white transition-colors"><Icon name="linkedin" /></a>
+                                <a href="tel:+918089449893" className="hover:text-white transition-colors"><Icon name="phone" /></a>
+                            </div>
+                            <p className="mt-20 text-zinc-600 text-sm">© 2026 Ajmin Fayaz</p>
+                        </div>
                     </footer>
                 </div>
             );
