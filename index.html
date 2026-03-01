@@ -59,19 +59,11 @@ body {
   color: var(--text);
 }
 
-.nav-links a:hover {
-  opacity: 0.6;
-}
+.nav-links a:hover { opacity: 0.6; }
 
 /* Sections */
-section {
-  padding: 120px 8vw;
-}
-
-.container {
-  max-width: 1200px;
-  margin: auto;
-}
+section { padding: 120px 8vw; }
+.container { max-width: 1200px; margin: auto; }
 
 /* Hero */
 .hero {
@@ -132,50 +124,52 @@ p {
   align-items: center;
 }
 
-/* Device / tab frame */
-.device {
-  background: #f5f5f7;
-  border-radius: 24px;
-  overflow: hidden;
+/* iPad Device */
+.ipad {
+  position: relative;
+  background: #111;
+  border-radius: 36px;
+  padding: 18px;
+  max-width: 520px;
+  margin: auto;
   box-shadow:
-    0 30px 60px rgba(0,0,0,0.12),
-    0 10px 20px rgba(0,0,0,0.08);
+    0 40px 80px rgba(0,0,0,0.25),
+    0 10px 30px rgba(0,0,0,0.15);
 }
 
-/* Device top bar */
-.device-bar {
-  height: 44px;
-  background: #e8e8eb;
-  display: flex;
-  align-items: center;
-  padding: 0 16px;
-  gap: 8px;
-}
-
-.dot {
-  width: 12px;
-  height: 12px;
+/* Camera */
+.ipad-camera {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 8px;
+  height: 8px;
+  background: #333;
   border-radius: 50%;
 }
 
-.red { background: #ff5f57; }
-.yellow { background: #febc2e; }
-.green { background: #28c840; }
+/* Screen */
+.ipad-screen {
+  background: #000;
+  border-radius: 24px;
+  overflow: hidden;
+}
 
-.device img {
+.ipad-screen img {
   width: 100%;
   display: block;
   background: #fff;
 }
 
-/* Apple-style angled depth */
+/* Apple-style depth */
 .angled {
-  transform: perspective(1200px) rotateY(-12deg) rotateX(4deg);
-  transition: transform 0.6s ease, box-shadow 0.6s ease;
+  transform: perspective(1200px) rotateY(-10deg) rotateX(3deg);
+  transition: transform 0.6s ease;
 }
 
 .angled:hover {
-  transform: perspective(1200px) rotateY(-6deg) rotateX(2deg) translateY(-6px);
+  transform: perspective(1200px) rotateY(-5deg) rotateX(1deg) translateY(-6px);
 }
 
 /* Skills */
@@ -190,7 +184,6 @@ p {
   border: 1px solid var(--line);
   border-radius: 20px;
   padding: 24px;
-  font-size: 16px;
 }
 
 /* Certificates */
@@ -207,17 +200,6 @@ p {
   padding: 24px;
 }
 
-.certificate h4 {
-  font-size: 18px;
-  font-weight: 600;
-}
-
-.certificate p {
-  font-size: 14px;
-  color: var(--muted);
-  margin-top: 8px;
-}
-
 /* Footer */
 footer {
   padding: 120px 8vw;
@@ -226,14 +208,8 @@ footer {
 
 /* Mobile */
 @media (max-width: 900px) {
-  .case {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-
-  .nav-links a {
-    margin-left: 16px;
-  }
+  .case { grid-template-columns: 1fr; gap: 40px; }
+  .angled { transform: none; }
 }
 </style>
 </head>
@@ -257,10 +233,7 @@ footer {
 <section class="hero">
   <div class="container">
     <h1>Designing digital experiences that feel effortless.</h1>
-    <p>
-      I’m Ajmin Fayaz — a UI/UX Designer crafting high-fidelity,
-      user-focused products across travel, cinema, e-commerce, and real estate.
-    </p>
+    <p>I’m Ajmin Fayaz — a UI/UX Designer crafting high-fidelity products across travel, cinema, e-commerce, and real estate.</p>
     <a href="#work" class="btn">View Case Studies</a>
   </div>
 </section>
@@ -273,17 +246,14 @@ footer {
 
     <!-- Lofio -->
     <div class="case">
-      <div class="device angled">
-        <div class="device-bar">
-          <span class="dot red"></span>
-          <span class="dot yellow"></span>
-          <span class="dot green"></span>
+      <div class="ipad angled">
+        <div class="ipad-camera"></div>
+        <div class="ipad-screen">
+          <img src="./travel.jpg" alt="Lofio iPad UX">
         </div>
-        <img src="./travel.jpg" alt="Lofio Travel UX">
       </div>
       <div>
         <h3>Lofio — A Unified Travel Experience</h3>
-        <p>A visual-first platform that removes tab switching and simplifies trip planning.</p>
         <p><strong>Key Feature:</strong> Transparent linear booking flow.</p>
       </div>
     </div>
@@ -294,16 +264,13 @@ footer {
     <div class="case">
       <div>
         <h3>Upside — The Cinematic Booking Experience</h3>
-        <p>A premium movie booking experience inspired by real cinemas.</p>
         <p><strong>Key Feature:</strong> Real-time anchor summary panel.</p>
       </div>
-      <div class="device angled">
-        <div class="device-bar">
-          <span class="dot red"></span>
-          <span class="dot yellow"></span>
-          <span class="dot green"></span>
+      <div class="ipad angled">
+        <div class="ipad-camera"></div>
+        <div class="ipad-screen">
+          <img src="./movie.jpg" alt="Upside iPad UX">
         </div>
-        <img src="./movie.jpg" alt="Upside Movie UX">
       </div>
     </div>
 
@@ -311,18 +278,15 @@ footer {
 
     <!-- Choco Box -->
     <div class="case">
-      <div class="device angled">
-        <div class="device-bar">
-          <span class="dot red"></span>
-          <span class="dot yellow"></span>
-          <span class="dot green"></span>
+      <div class="ipad angled">
+        <div class="ipad-camera"></div>
+        <div class="ipad-screen">
+          <img src="./com.jpg" alt="Choco Box iPad UX">
         </div>
-        <img src="./com.jpg" alt="Choco Box UX">
       </div>
       <div>
         <h3>Choco Box — Premium Confectionery App</h3>
-        <p>Translating luxury chocolate experiences into a refined light interface.</p>
-        <p><strong>Key Feature:</strong> Taste-based recommendations & 3-step checkout.</p>
+        <p><strong>Key Feature:</strong> Taste-based recommendations.</p>
       </div>
     </div>
 
@@ -332,16 +296,13 @@ footer {
     <div class="case">
       <div>
         <h3>Lofio Real Estate — Immersive Discovery</h3>
-        <p>A high-trust property platform reducing viewing fatigue for remote buyers.</p>
-        <p><strong>Key Feature:</strong> Virtual tours & granular rating systems.</p>
+        <p><strong>Key Feature:</strong> Virtual tours & rating systems.</p>
       </div>
-      <div class="device angled">
-        <div class="device-bar">
-          <span class="dot red"></span>
-          <span class="dot yellow"></span>
-          <span class="dot green"></span>
+      <div class="ipad angled">
+        <div class="ipad-camera"></div>
+        <div class="ipad-screen">
+          <img src="./real.jpg" alt="Real Estate iPad UX">
         </div>
-        <img src="./real.jpg" alt="Real Estate UX">
       </div>
     </div>
 
