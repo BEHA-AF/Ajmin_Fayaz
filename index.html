@@ -139,14 +139,20 @@ p {
   background: #f5f5f7;
 }
 
-/* Dark section */
-.dark {
-  background: #000;
-  color: #fff;
+/* Apple-style angled visuals */
+.angled {
+  transform: perspective(1200px) rotateY(-12deg) rotateX(4deg);
+  box-shadow:
+    0 40px 80px rgba(0,0,0,0.15),
+    0 10px 20px rgba(0,0,0,0.08);
+  transition: transform 0.6s ease, box-shadow 0.6s ease;
 }
 
-.dark p {
-  color: #a1a1a6;
+.angled:hover {
+  transform: perspective(1200px) rotateY(-6deg) rotateX(2deg) translateY(-6px);
+  box-shadow:
+    0 60px 120px rgba(0,0,0,0.2),
+    0 20px 40px rgba(0,0,0,0.12);
 }
 
 /* Skills */
@@ -162,6 +168,31 @@ p {
   border-radius: 20px;
   padding: 24px;
   font-size: 16px;
+}
+
+/* Certificates */
+.certificates {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin-top: 48px;
+}
+
+.certificate {
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 24px;
+}
+
+.certificate h4 {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.certificate p {
+  font-size: 14px;
+  color: var(--muted);
+  margin-top: 8px;
 }
 
 /* Footer */
@@ -193,6 +224,7 @@ footer {
     <div class="nav-links">
       <a href="#work">Work</a>
       <a href="#skills">Skills</a>
+      <a href="#certificates">Certificates</a>
       <a href="#contact">Contact</a>
     </div>
   </div>
@@ -218,7 +250,7 @@ footer {
     <h2>Solving real user problems through clarity, trust, and refined visuals.</h2>
     <p>
       From eliminating tab fatigue in travel booking to creating immersive
-      dark-mode experiences, my work focuses on simplicity and impact.
+      cinematic experiences, my work focuses on simplicity and impact.
     </p>
   </div>
 </section>
@@ -227,68 +259,48 @@ footer {
 <section id="work">
   <div class="container">
 
-    <!-- Lofio -->
     <div class="case">
-      <img src="./travel.jpg" alt="Lofio Travel UX">
+      <img src="./travel.jpg" class="angled" alt="Lofio Travel UX">
       <div>
         <h3>Lofio — A Unified Travel Experience</h3>
-        <p>
-          A visual-first travel platform that removes tab switching
-          and simplifies trip planning.
-        </p>
+        <p>A visual-first platform that removes tab switching and simplifies trip planning.</p>
         <p><strong>Key Feature:</strong> Transparent linear booking flow.</p>
       </div>
     </div>
 
     <div class="divider"></div>
 
-    <!-- Upside -->
     <div class="case">
       <div>
         <h3>Upside — The Cinematic Booking Experience</h3>
-        <p>
-          A premium dark-mode movie ticketing experience inspired
-          by real cinema environments.
-        </p>
+        <p>A premium dark-mode movie booking experience inspired by real cinemas.</p>
         <p><strong>Key Feature:</strong> Real-time anchor summary panel.</p>
       </div>
-      <img src="./movie.jpg" alt="Upside Movie UX">
+      <img src="./movie.jpg" class="angled" alt="Upside Movie UX">
     </div>
 
-  </div>
-</section>
+    <div class="divider"></div>
 
-<!-- DARK -->
-<section class="dark">
-  <div class="container">
     <div class="case">
-      <img src="./com.jpg" alt="Choco Box UX">
+      <img src="./com.jpg" class="angled" alt="Choco Box UX">
       <div>
         <h3>Choco Box — Premium Confectionery App</h3>
-        <p>
-          Translating luxury chocolate experiences into a refined
-          digital interface.
-        </p>
-        <p><strong>Key Feature:</strong> Taste-based recommendations.</p>
+        <p>Translating luxury chocolate experiences into a refined light interface.</p>
+        <p><strong>Key Feature:</strong> Taste-based recommendations & 3-step checkout.</p>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- REAL ESTATE -->
-<section>
-  <div class="container">
+    <div class="divider"></div>
+
     <div class="case">
       <div>
         <h3>Lofio Real Estate — Immersive Discovery</h3>
-        <p>
-          A high-trust property platform reducing viewing fatigue
-          for remote buyers.
-        </p>
-        <p><strong>Key Feature:</strong> Virtual tours & rating systems.</p>
+        <p>A high-trust property platform reducing viewing fatigue for remote buyers.</p>
+        <p><strong>Key Feature:</strong> Virtual tours & granular rating systems.</p>
       </div>
-      <img src="./real.jpg" alt="Real Estate UX">
+      <img src="./real.jpg" class="angled" alt="Real Estate UX">
     </div>
+
   </div>
 </section>
 
@@ -303,6 +315,23 @@ footer {
       <div class="skill">Responsive Design Systems</div>
       <div class="skill">High-Conversion Flows</div>
       <div class="skill">Figma (Auto Layout & Prototyping)</div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATES -->
+<section id="certificates">
+  <div class="container">
+    <h2>Certifications</h2>
+    <div class="certificates">
+      <div class="certificate">
+        <h4>Google UX Design Professional Certificate</h4>
+        <p>Google · Coursera</p>
+      </div>
+      <div class="certificate">
+        <h4>Create & Design Digital Products using Canva</h4>
+        <p>Coursera Project Network</p>
+      </div>
     </div>
   </div>
 </section>
