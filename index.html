@@ -33,7 +33,7 @@ body {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(255,255,255,0.85);
   backdrop-filter: saturate(180%) blur(20px);
   border-bottom: 1px solid var(--line);
 }
@@ -105,7 +105,7 @@ p {
   margin-top: 16px;
 }
 
-/* Buttons */
+/* Button */
 .btn {
   display: inline-block;
   margin-top: 32px;
@@ -124,7 +124,7 @@ p {
   margin: 120px 0;
 }
 
-/* Case Study */
+/* Case layout */
 .case {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -132,27 +132,50 @@ p {
   align-items: center;
 }
 
-.case img {
-  width: 100%;
-  height: auto;
-  border-radius: 24px;
+/* Device / tab frame */
+.device {
   background: #f5f5f7;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow:
+    0 30px 60px rgba(0,0,0,0.12),
+    0 10px 20px rgba(0,0,0,0.08);
 }
 
-/* Apple-style angled visuals */
+/* Device top bar */
+.device-bar {
+  height: 44px;
+  background: #e8e8eb;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  gap: 8px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.red { background: #ff5f57; }
+.yellow { background: #febc2e; }
+.green { background: #28c840; }
+
+.device img {
+  width: 100%;
+  display: block;
+  background: #fff;
+}
+
+/* Apple-style angled depth */
 .angled {
   transform: perspective(1200px) rotateY(-12deg) rotateX(4deg);
-  box-shadow:
-    0 40px 80px rgba(0,0,0,0.15),
-    0 10px 20px rgba(0,0,0,0.08);
   transition: transform 0.6s ease, box-shadow 0.6s ease;
 }
 
 .angled:hover {
   transform: perspective(1200px) rotateY(-6deg) rotateX(2deg) translateY(-6px);
-  box-shadow:
-    0 60px 120px rgba(0,0,0,0.2),
-    0 20px 40px rgba(0,0,0,0.12);
 }
 
 /* Skills */
@@ -244,23 +267,20 @@ footer {
 
 <div class="divider"></div>
 
-<!-- INTRO -->
-<section>
-  <div class="container">
-    <h2>Solving real user problems through clarity, trust, and refined visuals.</h2>
-    <p>
-      From eliminating tab fatigue in travel booking to creating immersive
-      cinematic experiences, my work focuses on simplicity and impact.
-    </p>
-  </div>
-</section>
-
 <!-- WORK -->
 <section id="work">
   <div class="container">
 
+    <!-- Lofio -->
     <div class="case">
-      <img src="./travel.jpg" class="angled" alt="Lofio Travel UX">
+      <div class="device angled">
+        <div class="device-bar">
+          <span class="dot red"></span>
+          <span class="dot yellow"></span>
+          <span class="dot green"></span>
+        </div>
+        <img src="./travel.jpg" alt="Lofio Travel UX">
+      </div>
       <div>
         <h3>Lofio — A Unified Travel Experience</h3>
         <p>A visual-first platform that removes tab switching and simplifies trip planning.</p>
@@ -270,19 +290,35 @@ footer {
 
     <div class="divider"></div>
 
+    <!-- Upside -->
     <div class="case">
       <div>
         <h3>Upside — The Cinematic Booking Experience</h3>
-        <p>A premium dark-mode movie booking experience inspired by real cinemas.</p>
+        <p>A premium movie booking experience inspired by real cinemas.</p>
         <p><strong>Key Feature:</strong> Real-time anchor summary panel.</p>
       </div>
-      <img src="./movie.jpg" class="angled" alt="Upside Movie UX">
+      <div class="device angled">
+        <div class="device-bar">
+          <span class="dot red"></span>
+          <span class="dot yellow"></span>
+          <span class="dot green"></span>
+        </div>
+        <img src="./movie.jpg" alt="Upside Movie UX">
+      </div>
     </div>
 
     <div class="divider"></div>
 
+    <!-- Choco Box -->
     <div class="case">
-      <img src="./com.jpg" class="angled" alt="Choco Box UX">
+      <div class="device angled">
+        <div class="device-bar">
+          <span class="dot red"></span>
+          <span class="dot yellow"></span>
+          <span class="dot green"></span>
+        </div>
+        <img src="./com.jpg" alt="Choco Box UX">
+      </div>
       <div>
         <h3>Choco Box — Premium Confectionery App</h3>
         <p>Translating luxury chocolate experiences into a refined light interface.</p>
@@ -292,13 +328,21 @@ footer {
 
     <div class="divider"></div>
 
+    <!-- Real Estate -->
     <div class="case">
       <div>
         <h3>Lofio Real Estate — Immersive Discovery</h3>
         <p>A high-trust property platform reducing viewing fatigue for remote buyers.</p>
         <p><strong>Key Feature:</strong> Virtual tours & granular rating systems.</p>
       </div>
-      <img src="./real.jpg" class="angled" alt="Real Estate UX">
+      <div class="device angled">
+        <div class="device-bar">
+          <span class="dot red"></span>
+          <span class="dot yellow"></span>
+          <span class="dot green"></span>
+        </div>
+        <img src="./real.jpg" alt="Real Estate UX">
+      </div>
     </div>
 
   </div>
@@ -311,9 +355,9 @@ footer {
     <div class="skills">
       <div class="skill">UX Strategy & Research</div>
       <div class="skill">Visual & Interaction Design</div>
-      <div class="skill">Dark-Mode Interfaces</div>
       <div class="skill">Responsive Design Systems</div>
       <div class="skill">High-Conversion Flows</div>
+      <div class="skill">Dark-Mode Interfaces</div>
       <div class="skill">Figma (Auto Layout & Prototyping)</div>
     </div>
   </div>
