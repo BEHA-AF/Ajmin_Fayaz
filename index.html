@@ -5,300 +5,173 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ajmin Fayaz | UX/UI Designer</title>
 
+<script src="https://cdn.tailwindcss.com"></script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-:root {
-  --primary: #FF6B3D;
-  --dark: #0f172a;
-  --light: #f8f9fb;
-  --text-secondary: #b0b0b0;
+body { font-family: 'Inter', sans-serif; }
+html { scroll-behavior: smooth; }
+.glass {
+  background: rgba(255,255,255,0.7);
+  backdrop-filter: blur(12px);
 }
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Inter', sans-serif;
-}
-
-body {
-  background: white;
-  color: #111;
-  line-height: 1.6;
-}
-
-section {
-  padding: 120px 8%;
-}
-
-h1 {
-  font-size: 64px;
-  font-weight: 800;
-}
-
-h2 {
-  font-size: 36px;
-  margin-bottom: 40px;
-}
-
-h3 {
-  font-size: 24px;
-  margin-bottom: 10px;
-}
-
-p {
-  font-size: 16px;
-  color: #555;
-}
-
-.btn {
-  display: inline-block;
-  padding: 12px 28px;
-  border-radius: 8px;
-  text-decoration: none;
-  margin-right: 15px;
-  transition: 0.3s ease;
-}
-
-.btn-primary {
-  background: white;
-  color: black;
-  font-weight: 600;
-}
-
-.btn-primary:hover {
-  background: var(--primary);
-  color: white;
-}
-
-.btn-outline {
-  border: 1px solid white;
-  color: white;
-}
-
-.btn-outline:hover {
-  background: white;
-  color: black;
-}
-
-/* HERO */
-
-.hero {
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  color: white;
-  background: linear-gradient(to bottom, rgba(15,23,42,0.8), rgba(15,23,42,0.4)),
-              url('hero.jpg') center/cover no-repeat;
-}
-
-.hero-content {
-  max-width: 600px;
-}
-
-.hero p {
-  color: rgba(255,255,255,0.8);
-  margin: 20px 0 30px;
-}
-
-/* PROJECTS */
-
-.projects {
-  background: white;
-}
-
-.project {
-  display: flex;
-  align-items: center;
-  gap: 60px;
-  margin-bottom: 120px;
-}
-
-.project img {
-  width: 50%;
-  border-radius: 20px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-  transition: 0.3s ease;
-}
-
-.project img:hover {
-  transform: scale(1.02);
-}
-
-.project-content {
-  width: 50%;
-}
-
-.reverse {
-  flex-direction: row-reverse;
-}
-
-/* PROCESS */
-
-.process {
-  background: var(--light);
-  text-align: center;
-}
-
-.process-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 40px;
-  margin-top: 40px;
-}
-
-/* CERTIFICATES */
-
-.certificates {
-  background: white;
-}
-
-.cert-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 30px;
-}
-
-.cert-card {
-  padding: 30px;
-  border: 1px solid #eee;
-  border-radius: 12px;
-  background: #fafafa;
-}
-
-/* CONTACT */
-
-.contact {
-  background: var(--dark);
-  color: white;
-  text-align: center;
-}
-
-.contact p {
-  color: var(--text-secondary);
-  margin: 20px 0 30px;
-}
-
-/* RESPONSIVE */
-
-@media(max-width: 900px) {
-  .project {
-    flex-direction: column;
-  }
-
-  .project img,
-  .project-content {
-    width: 100%;
-  }
-
-  h1 {
-    font-size: 42px;
-  }
+.hero-overlay {
+  background: linear-gradient(to right, rgba(15,17,19,0.85) 40%, rgba(15,17,19,0.4) 70%, transparent 100%);
 }
 </style>
 </head>
 
-<body>
+<body class="bg-white text-zinc-900">
+
+<!-- NAV -->
+<nav class="fixed w-full top-0 z-50 glass border-b border-zinc-200">
+  <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+    <div class="font-bold text-lg">Ajmin Fayaz</div>
+    <div class="hidden md:flex space-x-8 text-sm font-medium">
+      <a href="#projects" class="hover:text-orange-500 transition">Projects</a>
+      <a href="#process" class="hover:text-orange-500 transition">Process</a>
+      <a href="#contact" class="hover:text-orange-500 transition">Contact</a>
+    </div>
+    <a href="Ajmin_Fayaz_UI_UX_Designer_Resume.pdf" target="_blank" class="bg-black text-white px-6 py-2 rounded-full text-sm hover:bg-orange-500 transition">
+      Resume
+    </a>
+  </div>
+</nav>
 
 <!-- HERO -->
-<section class="hero">
-  <div class="hero-content">
-    <h1>Ajmin Fayaz</h1>
-    <p>Designing intuitive digital products that balance usability & business goals.</p>
-    <a href="#projects" class="btn btn-primary">View Projects</a>
-    <a href="#" class="btn btn-outline">Download Resume</a>
+<section class="relative h-screen flex items-center">
+  <img src="your-image.jpg" class="absolute inset-0 w-full h-full object-cover">
+  <div class="absolute inset-0 hero-overlay"></div>
+
+  <div class="relative z-10 max-w-7xl mx-auto px-6 text-white">
+    <div class="max-w-2xl">
+      <h1 class="text-5xl md:text-7xl font-extrabold leading-tight mb-6">
+        Ajmin Fayaz
+      </h1>
+      <p class="text-xl md:text-2xl text-zinc-200 mb-8">
+        Designing intuitive digital products that balance usability and business impact.
+      </p>
+      <div class="flex flex-wrap gap-4">
+        <a href="#projects" class="bg-white text-black px-8 py-4 rounded-full font-semibold hover:bg-orange-500 hover:text-white transition">
+          View Projects
+        </a>
+        <a href="Ajmin_Fayaz_UI_UX_Designer_Resume.pdf" class="border border-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-black transition">
+          Download Resume
+        </a>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- PROJECTS -->
-<section class="projects" id="projects">
-  <h2>Selected Work</h2>
+<section id="projects" class="py-32">
+  <div class="max-w-7xl mx-auto px-6">
+    <h2 class="text-4xl font-bold mb-20">Selected Work</h2>
 
-  <div class="project">
-    <img src="project1.jpg" alt="">
-    <div class="project-content">
-      <h3>Movie Booking Platform</h3>
-      <p>Redesigned booking flow to simplify seat selection and improve clarity.</p>
-      <p><strong>Role:</strong> UX/UI Designer</p>
-      <p><strong>Tools:</strong> Figma, FigJam</p>
-      <a href="#" class="btn btn-primary">View Case Study</a>
+    <!-- PROJECT 1 -->
+    <div class="grid md:grid-cols-2 gap-16 items-center mb-32">
+      <img src="travel.jpg" class="rounded-2xl shadow-xl hover:scale-105 transition duration-500">
+      <div>
+        <h3 class="text-2xl font-bold mb-4">Travel Booking Platform</h3>
+        <p class="text-zinc-600 mb-6">
+          Reduced decision friction caused by multi-tab travel planning by unifying flights, hotels and rentals into a single seamless booking flow.
+        </p>
+        <a href="#" class="font-semibold text-orange-500 hover:underline">
+          View Case Study →
+        </a>
+      </div>
     </div>
-  </div>
 
-  <div class="project reverse">
-    <img src="project2.jpg" alt="">
-    <div class="project-content">
-      <h3>Chocolate Ordering App</h3>
-      <p>Designed customizable cake experience with layered personalization flow.</p>
-      <a href="#" class="btn btn-primary">View Case Study</a>
+    <!-- PROJECT 2 -->
+    <div class="grid md:grid-cols-2 gap-16 items-center mb-32">
+      <div class="md:order-2">
+        <img src="real.jpg" class="rounded-2xl shadow-xl hover:scale-105 transition duration-500">
+      </div>
+      <div class="md:order-1">
+        <h3 class="text-2xl font-bold mb-4">Premium Property Marketplace</h3>
+        <p class="text-zinc-600 mb-6">
+          Designed a high-trust discovery experience with immersive virtual tours to reduce remote investment hesitation.
+        </p>
+        <a href="#" class="font-semibold text-orange-500 hover:underline">
+          View Case Study →
+        </a>
+      </div>
     </div>
-  </div>
 
-  <div class="project">
-    <img src="project3.jpg" alt="">
-    <div class="project-content">
-      <h3>Property Marketplace</h3>
-      <p>Improved property filtering and search interaction for better usability.</p>
-      <a href="#" class="btn btn-primary">View Case Study</a>
+    <!-- PROJECT 3 -->
+    <div class="grid md:grid-cols-2 gap-16 items-center mb-32">
+      <img src="movie.jpg" class="rounded-2xl shadow-xl hover:scale-105 transition duration-500">
+      <div>
+        <h3 class="text-2xl font-bold mb-4">Movie Ticketing App</h3>
+        <p class="text-zinc-600 mb-6">
+          Created a cinematic dark-mode booking system with a persistent live summary panel to reduce checkout confusion.
+        </p>
+        <a href="#" class="font-semibold text-orange-500 hover:underline">
+          View Case Study →
+        </a>
+      </div>
     </div>
-  </div>
 
-  <div class="project reverse">
-    <img src="project4.jpg" alt="">
-    <div class="project-content">
-      <h3>E-Commerce Website</h3>
-      <p>Created modern checkout experience with minimal friction.</p>
-      <a href="#" class="btn btn-primary">View Case Study</a>
+    <!-- PROJECT 4 -->
+    <div class="grid md:grid-cols-2 gap-16 items-center">
+      <div class="md:order-2">
+        <img src="e_com.jpg" class="rounded-2xl shadow-xl hover:scale-105 transition duration-500">
+      </div>
+      <div class="md:order-1">
+        <h3 class="text-2xl font-bold mb-4">Chocolate E-commerce Experience</h3>
+        <p class="text-zinc-600 mb-6">
+          Designed a sensory-first digital shopping journey with curated recommendations and a distraction-free checkout.
+        </p>
+        <a href="#" class="font-semibold text-orange-500 hover:underline">
+          View Case Study →
+        </a>
+      </div>
     </div>
-  </div>
 
+  </div>
 </section>
 
 <!-- PROCESS -->
-<section class="process">
-  <h2>How I Approach Design</h2>
-  <div class="process-grid">
-    <div>
-      <h3>Discover</h3>
-      <p>User research & problem understanding.</p>
-    </div>
-    <div>
-      <h3>Define</h3>
-      <p>Information architecture & flows.</p>
-    </div>
-    <div>
-      <h3>Design</h3>
-      <p>High-fidelity UI & interactions.</p>
-    </div>
-    <div>
-      <h3>Deliver</h3>
-      <p>Testing, iteration & dev handoff.</p>
-    </div>
-  </div>
-</section>
-
-<!-- CERTIFICATES -->
-<section class="certificates">
-  <h2>Certifications</h2>
-  <div class="cert-grid">
-    <div class="cert-card">
-      <h3>UX Design Certification</h3>
-      <p>Google</p>
-    </div>
-    <div class="cert-card">
-      <h3>Advanced UI Design</h3>
-      <p>Certified Program</p>
+<section id="process" class="py-32 bg-zinc-50">
+  <div class="max-w-7xl mx-auto px-6 text-center">
+    <h2 class="text-4xl font-bold mb-16">My Design Process</h2>
+    <div class="grid md:grid-cols-4 gap-12 text-left">
+      <div>
+        <h4 class="font-bold mb-2">Discover</h4>
+        <p class="text-zinc-600 text-sm">Research, competitor audits and user pain point mapping.</p>
+      </div>
+      <div>
+        <h4 class="font-bold mb-2">Define</h4>
+        <p class="text-zinc-600 text-sm">Information architecture, flows and clarity building.</p>
+      </div>
+      <div>
+        <h4 class="font-bold mb-2">Design</h4>
+        <p class="text-zinc-600 text-sm">High-fidelity UI systems and interaction design.</p>
+      </div>
+      <div>
+        <h4 class="font-bold mb-2">Deliver</h4>
+        <p class="text-zinc-600 text-sm">Usability testing, iteration and dev-ready handoff.</p>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- CONTACT -->
-<section class="contact">
-  <h2>Let’s Build Something Meaningful</h2>
-  <p>Open to on-site opportunities in UAE & global collaborations.</p>
-  <a href="mailto:yourmail@gmail.com" class="btn btn-primary">Email Me</a>
+<section id="contact" class="py-32 bg-black text-white text-center">
+  <div class="max-w-3xl mx-auto px-6">
+    <h2 class="text-5xl font-bold mb-8">Let’s build something impactful.</h2>
+    <p class="text-zinc-400 mb-10">
+      Open to on-site opportunities in UAE & global collaborations.
+    </p>
+    <a href="mailto:fayazajmin@gmail.com" class="bg-white text-black px-12 py-5 rounded-full font-semibold hover:bg-orange-500 hover:text-white transition">
+      Email Me
+    </a>
+  </div>
 </section>
+
+<footer class="py-10 text-center text-zinc-500 text-sm">
+  © 2026 Ajmin Fayaz — UX/UI Designer
+</footer>
 
 </body>
 </html>
