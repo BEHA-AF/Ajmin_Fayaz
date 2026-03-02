@@ -1,13 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Ajmin Fayaz</title>
+<title>Ajmin Fayaz — UI/UX Designer</title>
 
 <style>
+
+:root{
+--bg:#ffffff;
+--text:#111;
+--muted:#6e6e73;
+--line:#e5e5e7;
+}
 
 /* RESET */
 
@@ -15,19 +23,34 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:-apple-system,BlinkMacSystemFont;
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial;
 }
 
 body{
-background:white;
-color:#111;
+background:var(--bg);
+color:var(--text);
 }
-
 
 
 /* NAV */
 
-nav{
+.nav{
+
+position:sticky;
+
+top:0;
+
+background:white;
+
+border-bottom:1px solid var(--line);
+
+}
+
+.nav-inner{
+
+max-width:1200px;
+
+margin:auto;
 
 padding:20px 8vw;
 
@@ -35,10 +58,25 @@ display:flex;
 
 justify-content:space-between;
 
-border-bottom:1px solid #eee;
+}
+
+.logo{
+
+font-weight:600;
 
 }
 
+.nav-links a{
+
+margin-left:30px;
+
+text-decoration:none;
+
+color:black;
+
+font-size:14px;
+
+}
 
 
 /* HERO */
@@ -46,6 +84,10 @@ border-bottom:1px solid #eee;
 .hero{
 
 padding:140px 8vw;
+
+max-width:1200px;
+
+margin:auto;
 
 }
 
@@ -55,27 +97,77 @@ font-size:70px;
 
 max-width:900px;
 
+letter-spacing:-2px;
+
 }
 
 p{
 
 margin-top:20px;
 
-color:#666;
+color:var(--muted);
+
+max-width:700px;
+
+}
+
+
+
+/* BUTTON */
+
+.btn{
+
+display:inline-block;
+
+margin-top:30px;
+
+padding:14px 28px;
+
+background:black;
+
+color:white;
+
+border-radius:40px;
+
+text-decoration:none;
+
+}
+
+
+
+/* DIVIDER */
+
+.divider{
+
+height:1px;
+
+background:var(--line);
+
+margin:120px 0;
+
+}
+
+
+
+/* SECTIONS */
+
+section{
+
+padding:0 8vw;
+
+}
+
+.container{
+
+max-width:1200px;
+
+margin:auto;
 
 }
 
 
 
 /* CASE */
-
-.section{
-
-padding:120px 8vw;
-
-border-top:1px solid #eee;
-
-}
 
 .case{
 
@@ -87,7 +179,7 @@ gap:80px;
 
 align-items:center;
 
-margin-bottom:140px;
+margin-bottom:120px;
 
 }
 
@@ -97,55 +189,63 @@ margin-bottom:140px;
 
 .ipad{
 
-width:600px;
+max-width:620px;
 
 margin:auto;
-
-position:relative;
 
 transform:
 
 perspective(2000px)
 
-rotateY(-25deg)
+rotateY(-22deg)
 
-rotateX(10deg);
+rotateX(8deg);
+
+transition:0.6s;
 
 }
 
 
-/* frame */
+.ipad:hover{
 
-.ipad-frame{
+transform:
+
+perspective(2000px)
+
+rotateY(-12deg)
+
+rotateX(4deg)
+
+translateY(-10px);
+
+}
+
+
+
+/* FRAME */
+
+.ipad-screen{
 
 background:black;
 
-border-radius:30px;
+border-radius:34px;
 
 padding:14px;
 
 box-shadow:
 
-0 80px 100px rgba(0,0,0,0.25);
+0 80px 120px rgba(0,0,0,0.25);
 
 }
 
 
-/* screen */
+/* SCREEN */
 
-.screen{
-
-border-radius:20px;
-
-overflow:hidden;
-
-background:white;
-
-}
-
-.screen img{
+.ipad-screen img{
 
 width:100%;
+
+border-radius:20px;
 
 display:block;
 
@@ -161,14 +261,68 @@ font-size:32px;
 
 }
 
-.small{
 
-margin-top:10px;
 
-color:#777;
+/* SKILLS */
+
+.skills{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+gap:24px;
+
+margin-top:40px;
 
 }
 
+.skill{
+
+border:1px solid var(--line);
+
+padding:24px;
+
+border-radius:20px;
+
+}
+
+
+
+/* CERTIFICATES */
+
+.certificates{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+
+gap:24px;
+
+margin-top:40px;
+
+}
+
+.certificate{
+
+border:1px solid var(--line);
+
+padding:24px;
+
+border-radius:20px;
+
+}
+
+
+/* FOOTER */
+
+footer{
+
+padding:140px 8vw;
+
+text-align:center;
+
+}
 
 
 /* MOBILE */
@@ -184,8 +338,6 @@ grid-template-columns:1fr;
 .ipad{
 
 transform:none;
-
-width:100%;
 
 }
 
@@ -207,17 +359,27 @@ font-size:42px;
 
 
 
-<nav>
+<nav class="nav">
 
-<div>
+<div class="nav-inner">
+
+<div class="logo">
 
 Ajmin Fayaz
 
 </div>
 
-<div>
+<div class="nav-links">
 
-Work Skills Contact
+<a href="#work">Work</a>
+
+<a href="#skills">Skills</a>
+
+<a href="#certificates">Certificates</a>
+
+<a href="#contact">Contact</a>
+
+</div>
 
 </div>
 
@@ -225,7 +387,7 @@ Work Skills Contact
 
 
 
-<div class="hero">
+<section class="hero">
 
 <h1>
 
@@ -235,35 +397,43 @@ Designing digital experiences that feel effortless.
 
 <p>
 
-UI/UX Designer crafting modern digital products.
+UI/UX Designer crafting high-fidelity products across travel, cinema, e-commerce and real estate.
 
 </p>
 
-</div>
+<a href="#work" class="btn">
+
+View Case Studies
+
+</a>
+
+</section>
 
 
 
-<div class="section">
+<div class="divider"></div>
 
 
+
+<section id="work">
+
+<div class="container">
+
+
+
+<!-- Travel -->
 
 <div class="case">
 
-
 <div class="ipad">
 
-<div class="ipad-frame">
-
-<div class="screen">
+<div class="ipad-screen">
 
 <img src="travel.jpg">
 
 </div>
 
 </div>
-
-</div>
-
 
 <div>
 
@@ -273,7 +443,7 @@ Unified Travel Experience
 
 </h3>
 
-<p class="small">
+<p>
 
 Transparent booking flow.
 
@@ -285,34 +455,33 @@ Transparent booking flow.
 
 
 
+<div class="divider"></div>
 
+
+
+<!-- Cinema -->
 
 <div class="case">
-
 
 <div>
 
 <h3>
 
-Cinema Booking
+Cinema Booking Experience
 
 </h3>
 
-<p class="small">
+<p>
 
-Real-time summary system.
+Real-time anchor summary panel.
 
 </p>
 
 </div>
 
-
-
 <div class="ipad">
 
-<div class="ipad-frame">
-
-<div class="screen">
+<div class="ipad-screen">
 
 <img src="movie.jpg">
 
@@ -323,11 +492,174 @@ Real-time summary system.
 </div>
 
 
+
+<div class="divider"></div>
+
+
+
+<!-- Ecommerce -->
+
+<div class="case">
+
+<div class="ipad">
+
+<div class="ipad-screen">
+
+<img src="com.jpg">
+
+</div>
+
+</div>
+
+<div>
+
+<h3>
+
+Choco Box App
+
+</h3>
+
+<p>
+
+Taste-based recommendations.
+
+</p>
+
+</div>
+
+</div>
+
+
+
+<div class="divider"></div>
+
+
+
+<!-- Real Estate -->
+
+<div class="case">
+
+<div>
+
+<h3>
+
+Real Estate Platform
+
+</h3>
+
+<p>
+
+Immersive property discovery.
+
+</p>
+
+</div>
+
+<div class="ipad">
+
+<div class="ipad-screen">
+
+<img src="real.jpg">
+
+</div>
+
+</div>
+
 </div>
 
 
 
 </div>
+
+</section>
+
+
+
+<section id="skills">
+
+<div class="container">
+
+<h2>
+
+What I Specialize In
+
+</h2>
+
+<div class="skills">
+
+<div class="skill">UX Strategy</div>
+
+<div class="skill">UI Design</div>
+
+<div class="skill">Design Systems</div>
+
+<div class="skill">Figma</div>
+
+<div class="skill">Research</div>
+
+<div class="skill">Prototyping</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section id="certificates">
+
+<div class="container">
+
+<h2>
+
+Certifications
+
+</h2>
+
+<div class="certificates">
+
+<div class="certificate">
+
+Google UX Certificate
+
+</div>
+
+<div class="certificate">
+
+Canva Product Design
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<footer id="contact">
+
+<h2>
+
+Let's build something thoughtful.
+
+</h2>
+
+<p>
+
+fayazajmin@gmail.com
+
+</p>
+
+<a class="btn">
+
+Contact Me
+
+</a>
+
+</footer>
 
 
 
