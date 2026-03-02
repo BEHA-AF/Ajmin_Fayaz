@@ -1,668 +1,256 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Ajmin Fayaz — UI/UX Designer</title>
-
-<style>
-
-:root{
---bg:#ffffff;
---text:#111;
---muted:#6e6e73;
---line:#e5e5e7;
-}
-
-/* RESET */
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial;
-}
-
-body{
-background:var(--bg);
-color:var(--text);
-}
-
-
-/* NAV */
-
-.nav{
-
-position:sticky;
-
-top:0;
-
-background:white;
-
-border-bottom:1px solid var(--line);
-
-}
-
-.nav-inner{
-
-max-width:1200px;
-
-margin:auto;
-
-padding:20px 8vw;
-
-display:flex;
-
-justify-content:space-between;
-
-}
-
-.logo{
-
-font-weight:600;
-
-}
-
-.nav-links a{
-
-margin-left:30px;
-
-text-decoration:none;
-
-color:black;
-
-font-size:14px;
-
-}
-
-
-/* HERO */
-
-.hero{
-
-padding:140px 8vw;
-
-max-width:1200px;
-
-margin:auto;
-
-}
-
-h1{
-
-font-size:70px;
-
-max-width:900px;
-
-letter-spacing:-2px;
-
-}
-
-p{
-
-margin-top:20px;
-
-color:var(--muted);
-
-max-width:700px;
-
-}
-
-
-
-/* BUTTON */
-
-.btn{
-
-display:inline-block;
-
-margin-top:30px;
-
-padding:14px 28px;
-
-background:black;
-
-color:white;
-
-border-radius:40px;
-
-text-decoration:none;
-
-}
-
-
-
-/* DIVIDER */
-
-.divider{
-
-height:1px;
-
-background:var(--line);
-
-margin:120px 0;
-
-}
-
-
-
-/* SECTIONS */
-
-section{
-
-padding:0 8vw;
-
-}
-
-.container{
-
-max-width:1200px;
-
-margin:auto;
-
-}
-
-
-
-/* CASE */
-
-.case{
-
-display:grid;
-
-grid-template-columns:1fr 1fr;
-
-gap:80px;
-
-align-items:center;
-
-margin-bottom:120px;
-
-}
-
-
-
-/* REALISTIC IPAD */
-
-.ipad{
-
-max-width:620px;
-
-margin:auto;
-
-transform:
-
-perspective(2000px)
-
-rotateY(-22deg)
-
-rotateX(8deg);
-
-transition:0.6s;
-
-}
-
-
-.ipad:hover{
-
-transform:
-
-perspective(2000px)
-
-rotateY(-12deg)
-
-rotateX(4deg)
-
-translateY(-10px);
-
-}
-
-
-
-/* FRAME */
-
-.ipad-screen{
-
-background:black;
-
-border-radius:34px;
-
-padding:14px;
-
-box-shadow:
-
-0 80px 120px rgba(0,0,0,0.25);
-
-}
-
-
-/* SCREEN */
-
-.ipad-screen img{
-
-width:100%;
-
-border-radius:20px;
-
-display:block;
-
-}
-
-
-
-/* TEXT */
-
-h3{
-
-font-size:32px;
-
-}
-
-
-
-/* SKILLS */
-
-.skills{
-
-display:grid;
-
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-
-gap:24px;
-
-margin-top:40px;
-
-}
-
-.skill{
-
-border:1px solid var(--line);
-
-padding:24px;
-
-border-radius:20px;
-
-}
-
-
-
-/* CERTIFICATES */
-
-.certificates{
-
-display:grid;
-
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-
-gap:24px;
-
-margin-top:40px;
-
-}
-
-.certificate{
-
-border:1px solid var(--line);
-
-padding:24px;
-
-border-radius:20px;
-
-}
-
-
-/* FOOTER */
-
-footer{
-
-padding:140px 8vw;
-
-text-align:center;
-
-}
-
-
-/* MOBILE */
-
-@media(max-width:900px){
-
-.case{
-
-grid-template-columns:1fr;
-
-}
-
-.ipad{
-
-transform:none;
-
-}
-
-h1{
-
-font-size:42px;
-
-}
-
-}
-
-</style>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajmin Fayaz — UI/UX Designer</title>
+    <style>
+        :root {
+            --bg: #ffffff;
+            --text: #111111;
+            --muted: #6e6e73;
+            --line: #e5e5e7;
+            --accent: #000000;
+        }
+
+        /* RESET */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.5;
+            overflow-x: hidden;
+        }
+
+        /* NAVIGATION */
+        nav {
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            z-index: 100;
+            border-bottom: 1px solid var(--line);
+            padding: 20px 8vw;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo { font-weight: 600; font-size: 18px; }
+        .nav-links a {
+            margin-left: 30px;
+            text-decoration: none;
+            color: var(--text);
+            font-size: 14px;
+            transition: opacity 0.2s;
+        }
+        .nav-links a:hover { opacity: 0.6; }
+
+        /* HERO */
+        .hero {
+            padding: 140px 8vw;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        h1 {
+            font-size: clamp(40px, 8vw, 72px);
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+            font-weight: 600;
+        }
+
+        .hero p {
+            margin-top: 24px;
+            font-size: clamp(18px, 3vw, 24px);
+            color: var(--muted);
+            max-width: 700px;
+        }
+
+        /* WORK SECTION */
+        .section {
+            padding: 80px 8vw;
+            max-width: 1400px;
+            margin: auto;
+        }
+
+        .case {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            margin-bottom: 140px;
+        }
+
+        .case.reverse { direction: rtl; }
+        .case.reverse > div { direction: ltr; }
+
+        /* REALISTIC IPAD MOCKUP */
+        .ipad {
+            width: 100%;
+            max-width: 600px;
+            perspective: 2000px;
+            transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .ipad-frame {
+            background: #000;
+            border-radius: 38px;
+            padding: 12px;
+            box-shadow: 0 50px 100px rgba(0,0,0,0.15), 0 15px 30px rgba(0,0,0,0.1);
+            transform: rotateY(-25deg) rotateX(10deg);
+            transition: transform 0.5s ease;
+        }
+
+        .case:hover .ipad-frame {
+            transform: rotateY(-15deg) rotateX(5deg) translateY(-10px);
+        }
+
+        .screen {
+            border-radius: 26px;
+            overflow: hidden;
+            background: #f5f5f7;
+            aspect-ratio: 4 / 3;
+        }
+
+        .screen img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* CONTENT STYLES */
+        h2 { font-size: 40px; margin-bottom: 40px; letter-spacing: -0.02em; }
+        h3 { font-size: 32px; margin-bottom: 12px; }
+        .description { color: var(--muted); font-size: 18px; }
+
+        .btn {
+            display: inline-block;
+            margin-top: 32px;
+            padding: 16px 32px;
+            background: var(--accent);
+            color: white;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: transform 0.2s;
+        }
+        .btn:hover { transform: scale(1.05); }
+
+        /* SKILLS & CERTS */
+        .grid-box {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            border: 1px solid var(--line);
+            padding: 32px;
+            border-radius: 24px;
+            font-weight: 500;
+            transition: border-color 0.3s;
+        }
+        .card:hover { border-color: var(--text); }
+
+        /* FOOTER */
+        footer {
+            padding: 140px 8vw;
+            text-align: center;
+            border-top: 1px solid var(--line);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 900px) {
+            .case, .case.reverse {
+                grid-template-columns: 1fr;
+                direction: ltr;
+                gap: 40px;
+            }
+            .ipad-frame {
+                transform: none !important;
+            }
+            .hero { padding: 80px 8vw; }
+        }
+    </style>
 </head>
-
-
-
 <body>
 
-
-
-<nav class="nav">
-
-<div class="nav-inner">
-
-<div class="logo">
-
-Ajmin Fayaz
-
-</div>
-
-<div class="nav-links">
-
-<a href="#work">Work</a>
-
-<a href="#skills">Skills</a>
-
-<a href="#certificates">Certificates</a>
-
-<a href="#contact">Contact</a>
-
-</div>
-
-</div>
-
-</nav>
-
-
-
-<section class="hero">
-
-<h1>
-
-Designing digital experiences that feel effortless.
-
-</h1>
-
-<p>
-
-UI/UX Designer crafting high-fidelity products across travel, cinema, e-commerce and real estate.
-
-</p>
-
-<a href="#work" class="btn">
-
-View Case Studies
-
-</a>
-
-</section>
-
-
-
-<div class="divider"></div>
-
-
-
-<section id="work">
-
-<div class="container">
-
-
-
-<!-- Travel -->
-
-<div class="case">
-
-<div class="ipad">
-
-<div class="ipad-screen">
-
-<img src="travel.jpg">
-
-</div>
-
-</div>
-
-<div>
-
-<h3>
-
-Unified Travel Experience
-
-</h3>
-
-<p>
-
-Transparent booking flow.
-
-</p>
-
-</div>
-
-</div>
-
-
-
-<div class="divider"></div>
-
-
-
-<!-- Cinema -->
-
-<div class="case">
-
-<div>
-
-<h3>
-
-Cinema Booking Experience
-
-</h3>
-
-<p>
-
-Real-time anchor summary panel.
-
-</p>
-
-</div>
-
-<div class="ipad">
-
-<div class="ipad-screen">
-
-<img src="movie.jpg">
-
-</div>
-
-</div>
-
-</div>
-
-
-
-<div class="divider"></div>
-
-
-
-<!-- Ecommerce -->
-
-<div class="case">
-
-<div class="ipad">
-
-<div class="ipad-screen">
-
-<img src="com.jpg">
-
-</div>
-
-</div>
-
-<div>
-
-<h3>
-
-Choco Box App
-
-</h3>
-
-<p>
-
-Taste-based recommendations.
-
-</p>
-
-</div>
-
-</div>
-
-
-
-<div class="divider"></div>
-
-
-
-<!-- Real Estate -->
-
-<div class="case">
-
-<div>
-
-<h3>
-
-Real Estate Platform
-
-</h3>
-
-<p>
-
-Immersive property discovery.
-
-</p>
-
-</div>
-
-<div class="ipad">
-
-<div class="ipad-screen">
-
-<img src="real.jpg">
-
-</div>
-
-</div>
-
-</div>
-
-
-
-</div>
-
-</section>
-
-
-
-<section id="skills">
-
-<div class="container">
-
-<h2>
-
-What I Specialize In
-
-</h2>
-
-<div class="skills">
-
-<div class="skill">UX Strategy</div>
-
-<div class="skill">UI Design</div>
-
-<div class="skill">Design Systems</div>
-
-<div class="skill">Figma</div>
-
-<div class="skill">Research</div>
-
-<div class="skill">Prototyping</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<section id="certificates">
-
-<div class="container">
-
-<h2>
-
-Certifications
-
-</h2>
-
-<div class="certificates">
-
-<div class="certificate">
-
-Google UX Certificate
-
-</div>
-
-<div class="certificate">
-
-Canva Product Design
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<footer id="contact">
-
-<h2>
-
-Let's build something thoughtful.
-
-</h2>
-
-<p>
-
-fayazajmin@gmail.com
-
-</p>
-
-<a class="btn">
-
-Contact Me
-
-</a>
-
-</footer>
-
-
+    <nav>
+        <div class="logo">Ajmin Fayaz</div>
+        <div class="nav-links">
+            <a href="#work">Work</a>
+            <a href="#skills">Skills</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <h1>Designing digital experiences that feel effortless.</h1>
+        <p>UI/UX Designer crafting high-fidelity products across travel, cinema, and e-commerce.</p>
+        <a href="#work" class="btn">View Case Studies</a>
+    </section>
+
+    <section id="work" class="section">
+        <div class="case">
+            <div class="ipad">
+                <div class="ipad-frame">
+                    <div class="screen"><img src="travel.jpg" alt="Travel App"></div>
+                </div>
+            </div>
+            <div>
+                <h3>Unified Travel Experience</h3>
+                <p class="description">A transparent, end-to-end booking flow designed for the modern traveler.</p>
+            </div>
+        </div>
+
+        <div class="case reverse">
+            <div class="ipad">
+                <div class="ipad-frame">
+                    <div class="screen"><img src="movie.jpg" alt="Cinema App"></div>
+                </div>
+            </div>
+            <div>
+                <h3>Cinema Booking System</h3>
+                <p class="description">Real-time anchor summary panels to streamline the seat selection process.</p>
+            </div>
+        </div>
+
+        <div class="case">
+            <div class="ipad">
+                <div class="ipad-frame">
+                    <div class="screen"><img src="com.jpg" alt="E-commerce App"></div>
+                </div>
+            </div>
+            <div>
+                <h3>Choco Box App</h3>
+                <p class="description">Taste-based recommendation engine for personalized gift shopping.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="section">
+        <h2>Specializations</h2>
+        <div class="grid-box">
+            <div class="card">UX Strategy</div>
+            <div class="card">Design Systems</div>
+            <div class="card">Figma Prototyping</div>
+            <div class="card">User Research</div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <h2>Let's build something thoughtful.</h2>
+        <p>fayazajmin@gmail.com</p>
+        <a href="mailto:fayazajmin@gmail.com" class="btn">Get in Touch</a>
+    </footer>
 
 </body>
-
 </html>
