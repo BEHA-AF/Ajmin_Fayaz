@@ -1,256 +1,169 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ml">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ajmin Fayaz — UI/UX Designer</title>
+    <title>Ajmin Fayaz — UI/UX Portfolio</title>
     <style>
         :root {
-            --bg: #ffffff;
-            --text: #111111;
-            --muted: #6e6e73;
-            --line: #e5e5e7;
-            --accent: #000000;
+            --bg: #f5f5f7;
+            --text: #1d1d1f;
+            --line: #d2d2d7;
+            --ipad-silver: #c7c7c7;
         }
 
-        /* RESET */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-        }
+        * { margin:0; padding:0; box-sizing:border-box; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
 
-        body {
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.5;
-            overflow-x: hidden;
-        }
+        body { background: var(--bg); color: var(--text); overflow-x: hidden; }
 
-        /* NAVIGATION */
-        nav {
-            position: sticky;
-            top: 0;
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(20px);
-            z-index: 100;
-            border-bottom: 1px solid var(--line);
-            padding: 20px 8vw;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo { font-weight: 600; font-size: 18px; }
-        .nav-links a {
-            margin-left: 30px;
-            text-decoration: none;
-            color: var(--text);
-            font-size: 14px;
-            transition: opacity 0.2s;
-        }
-        .nav-links a:hover { opacity: 0.6; }
-
-        /* HERO */
+        /* HERO SECTION */
         .hero {
-            padding: 140px 8vw;
+            text-align: center;
+            padding: 100px 20px;
+        }
+        h1 { font-size: 56px; letter-spacing: -1px; margin-bottom: 20px; }
+
+        /* THE REALISTIC IPAD SETUP */
+        .container {
             max-width: 1200px;
             margin: auto;
+            padding: 50px 20px;
         }
 
-        h1 {
-            font-size: clamp(40px, 8vw, 72px);
-            line-height: 1.1;
-            letter-spacing: -0.03em;
-            font-weight: 600;
-        }
-
-        .hero p {
-            margin-top: 24px;
-            font-size: clamp(18px, 3vw, 24px);
-            color: var(--muted);
-            max-width: 700px;
-        }
-
-        /* WORK SECTION */
-        .section {
-            padding: 80px 8vw;
-            max-width: 1400px;
-            margin: auto;
-        }
-
-        .case {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
+        .project-block {
+            display: flex;
             align-items: center;
-            margin-bottom: 140px;
+            justify-content: space-around;
+            gap: 50px;
+            margin-bottom: 200px;
         }
 
-        .case.reverse { direction: rtl; }
-        .case.reverse > div { direction: ltr; }
-
-        /* REALISTIC IPAD MOCKUP */
-        .ipad {
-            width: 100%;
-            max-width: 600px;
-            perspective: 2000px;
-            transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+        /* IPAD WITH BUTTONS & PORTS */
+        .ipad-device {
+            position: relative;
+            width: 500px;
+            perspective: 1500px;
+            transition: 0.5s ease;
         }
 
-        .ipad-frame {
-            background: #000;
-            border-radius: 38px;
+        .ipad-body {
+            background: #111;
             padding: 12px;
-            box-shadow: 0 50px 100px rgba(0,0,0,0.15), 0 15px 30px rgba(0,0,0,0.1);
-            transform: rotateY(-25deg) rotateX(10deg);
-            transition: transform 0.5s ease;
+            border-radius: 40px;
+            position: relative;
+            border: 4px solid var(--ipad-silver);
+            box-shadow: 0 50px 100px rgba(0,0,0,0.3);
+            transform: rotateY(-20deg) rotateX(5deg);
         }
 
-        .case:hover .ipad-frame {
-            transform: rotateY(-15deg) rotateX(5deg) translateY(-10px);
+        /* Side Buttons (Volume & Power) */
+        .ipad-body::before {
+            content: '';
+            position: absolute;
+            top: 60px; right: -7px;
+            width: 3px; height: 50px;
+            background: #888; border-radius: 0 4px 4px 0;
+            box-shadow: 0 60px 0 #888; /* Second button */
+        }
+        
+        /* Speaker Holes & Charging Port */
+        .ipad-body::after {
+            content: '';
+            position: absolute;
+            bottom: -6px; left: 50%;
+            transform: translateX(-50%);
+            width: 60px; height: 3px;
+            background: #555; border-radius: 4px;
         }
 
         .screen {
-            border-radius: 26px;
+            background: #fff;
+            border-radius: 28px;
             overflow: hidden;
-            background: #f5f5f7;
-            aspect-ratio: 4 / 3;
+            aspect-ratio: 4/3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        .screen img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
+        .screen img { width: 100%; height: 100%; object-fit: cover; }
+
+        /* MAGIC KEYBOARD (The Base) */
+        .keyboard-base {
+            position: absolute;
+            bottom: -40px;
+            left: -10%;
+            width: 120%;
+            height: 20px;
+            background: #2c2c2e;
+            border-radius: 10px 10px 40px 40px;
+            transform: rotateX(70deg);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
         }
 
-        /* CONTENT STYLES */
-        h2 { font-size: 40px; margin-bottom: 40px; letter-spacing: -0.02em; }
-        h3 { font-size: 32px; margin-bottom: 12px; }
-        .description { color: var(--muted); font-size: 18px; }
-
-        .btn {
-            display: inline-block;
-            margin-top: 32px;
-            padding: 16px 32px;
-            background: var(--accent);
-            color: white;
-            border-radius: 40px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: transform 0.2s;
-        }
-        .btn:hover { transform: scale(1.05); }
-
-        /* SKILLS & CERTS */
-        .grid-box {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
+        /* Trackpad detail */
+        .keyboard-base::after {
+            content: '';
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 30%; height: 60%;
+            background: #3a3a3c;
+            border-radius: 4px;
         }
 
-        .card {
-            border: 1px solid var(--line);
-            padding: 32px;
-            border-radius: 24px;
-            font-weight: 500;
-            transition: border-color 0.3s;
-        }
-        .card:hover { border-color: var(--text); }
-
-        /* FOOTER */
-        footer {
-            padding: 140px 8vw;
-            text-align: center;
-            border-top: 1px solid var(--line);
-        }
+        /* TEXT CONTENT */
+        .info h3 { font-size: 32px; margin-bottom: 10px; }
+        .info p { color: #6e6e73; font-size: 18px; }
 
         /* RESPONSIVE */
         @media (max-width: 900px) {
-            .case, .case.reverse {
-                grid-template-columns: 1fr;
-                direction: ltr;
-                gap: 40px;
-            }
-            .ipad-frame {
-                transform: none !important;
-            }
-            .hero { padding: 80px 8vw; }
+            .project-block { flex-direction: column; text-align: center; }
+            .ipad-device { width: 90%; transform: scale(0.8); }
+            .ipad-body { transform: none; }
+            .keyboard-base { display: none; }
         }
     </style>
 </head>
 <body>
 
-    <nav>
-        <div class="logo">Ajmin Fayaz</div>
-        <div class="nav-links">
-            <a href="#work">Work</a>
-            <a href="#skills">Skills</a>
-            <a href="#contact">Contact</a>
-        </div>
-    </nav>
-
     <section class="hero">
-        <h1>Designing digital experiences that feel effortless.</h1>
-        <p>UI/UX Designer crafting high-fidelity products across travel, cinema, and e-commerce.</p>
-        <a href="#work" class="btn">View Case Studies</a>
+        <h1>Ajmin Fayaz</h1>
+        <p>Crafting high-fidelity digital products.</p>
     </section>
 
-    <section id="work" class="section">
-        <div class="case">
-            <div class="ipad">
-                <div class="ipad-frame">
-                    <div class="screen"><img src="travel.jpg" alt="Travel App"></div>
+    <div class="container">
+        
+        <div class="project-block">
+            <div class="ipad-device">
+                <div class="ipad-body">
+                    <div class="screen">
+                        <img src="travel.jpg" alt="Travel Project">
+                    </div>
                 </div>
-            </div>
-            <div>
+                <div class="keyboard-base"></div> </div>
+            <div class="info">
                 <h3>Unified Travel Experience</h3>
-                <p class="description">A transparent, end-to-end booking flow designed for the modern traveler.</p>
+                <p>A seamless booking flow for modern explorers.</p>
             </div>
         </div>
 
-        <div class="case reverse">
-            <div class="ipad">
-                <div class="ipad-frame">
-                    <div class="screen"><img src="movie.jpg" alt="Cinema App"></div>
+        <div class="project-block" style="flex-direction: row-reverse;">
+            <div class="ipad-device">
+                <div class="ipad-body" style="transform: rotateY(20deg) rotateX(5deg);">
+                    <div class="screen">
+                        <img src="movie.jpg" alt="Cinema Project">
+                    </div>
                 </div>
+                <div class="keyboard-base" style="left: -10%;"></div>
             </div>
-            <div>
-                <h3>Cinema Booking System</h3>
-                <p class="description">Real-time anchor summary panels to streamline the seat selection process.</p>
+            <div class="info">
+                <h3>Cinema Booking</h3>
+                <p>Real-time seat selection and summary panel.</p>
             </div>
         </div>
 
-        <div class="case">
-            <div class="ipad">
-                <div class="ipad-frame">
-                    <div class="screen"><img src="com.jpg" alt="E-commerce App"></div>
-                </div>
-            </div>
-            <div>
-                <h3>Choco Box App</h3>
-                <p class="description">Taste-based recommendation engine for personalized gift shopping.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="skills" class="section">
-        <h2>Specializations</h2>
-        <div class="grid-box">
-            <div class="card">UX Strategy</div>
-            <div class="card">Design Systems</div>
-            <div class="card">Figma Prototyping</div>
-            <div class="card">User Research</div>
-        </div>
-    </section>
-
-    <footer id="contact">
-        <h2>Let's build something thoughtful.</h2>
-        <p>fayazajmin@gmail.com</p>
-        <a href="mailto:fayazajmin@gmail.com" class="btn">Get in Touch</a>
-    </footer>
+    </div>
 
 </body>
 </html>
