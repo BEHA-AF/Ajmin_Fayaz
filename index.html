@@ -7,134 +7,190 @@
 
 <style>
 
-/* ===============================
-GLOBAL
-=============================== */
-
 :root {
---bg:#000;
---text:#ffffff;
---muted:#c7c7cc;
---line:#222;
+  --bg: #ffffff;
+  --text: #0a0a0a;
+  --muted: #6e6e73;
+  --line: #e5e5e7;
 }
+
+/* Reset */
 
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
 font-family:-apple-system,BlinkMacSystemFont,
-"SF Pro Display","Segoe UI",Inter,Arial;
+"SF Pro Display","Segoe UI",Inter,Helvetica,Arial;
 }
 
 body{
-background:#000;
-color:#fff;
+background:var(--bg);
+color:var(--text);
+line-height:1.5;
 }
 
 
-/* ===============================
-NAV
-=============================== */
+/* Navigation */
 
 .nav{
+
 position:sticky;
+
 top:0;
-background:rgba(0,0,0,.6);
+
+background:rgba(255,255,255,.85);
+
 backdrop-filter:blur(20px);
-border-bottom:1px solid #222;
+
+border-bottom:1px solid var(--line);
+
 }
 
+
 .nav-inner{
+
 max-width:1200px;
+
 margin:auto;
-padding:18px 8vw;
+
+padding:16px 8vw;
+
 display:flex;
+
 justify-content:space-between;
+
+align-items:center;
+
 }
 
 .logo{
+
 font-weight:600;
+
+font-size:15px;
+
 }
 
-.nav a{
-margin-left:30px;
-color:white;
+.nav-links a{
+
+margin-left:32px;
+
 text-decoration:none;
+
+color:var(--text);
+
 font-size:14px;
+
 }
 
 
-/* ===============================
-SECTIONS
-=============================== */
+
+/* Sections */
 
 section{
+
 padding:120px 8vw;
+
 }
 
 .container{
+
 max-width:1200px;
+
 margin:auto;
+
 }
 
 
-/* ===============================
-HERO
-=============================== */
+
+/* Hero */
 
 .hero{
+
 min-height:90vh;
+
 display:flex;
+
 align-items:center;
+
 }
 
+
+
+/* Typography */
+
 h1{
+
 font-size:clamp(48px,7vw,80px);
-letter-spacing:-2px;
+
+letter-spacing:-0.03em;
+
 }
 
 h2{
+
 font-size:clamp(36px,5vw,56px);
+
 }
 
 h3{
+
 font-size:32px;
+
 }
 
 p{
-margin-top:20px;
-max-width:650px;
-color:#aaa;
+
+margin-top:16px;
+
+max-width:720px;
+
+color:var(--muted);
+
 font-size:18px;
+
 }
+
+
+
+/* Button */
 
 .btn{
 
 display:inline-block;
-margin-top:30px;
+
+margin-top:32px;
+
 padding:14px 28px;
-border-radius:40px;
-background:white;
-color:black;
+
+border-radius:999px;
+
+background:black;
+
+color:white;
+
 text-decoration:none;
 
 }
 
 
-/* ===============================
-DIVIDER
-=============================== */
+
+/* Divider */
 
 .divider{
+
 height:1px;
-background:#222;
+
+background:var(--line);
+
 margin:120px 0;
+
 }
 
 
-/* ===============================
-CASE GRID
-=============================== */
+
+/* Case Grid */
 
 .case{
 
@@ -151,219 +207,43 @@ align-items:center;
 
 
 /* ===============================
-REALISTIC IPAD
+Minimal Apple iPad
 =============================== */
 
-.ipad {
+.ipad{
 
 position:relative;
 
-max-width:640px;
+max-width:560px;
 
 margin:auto;
 
-padding:26px;
+padding:18px;
 
-border-radius:48px;
+border-radius:36px;
 
+background:#f5f5f7;
 
-background:linear-gradient(
-
-160deg,
-
-#c7d6e6,
-
-#9db5cc,
-
-#6e8faa,
-
-#4a6e8d,
-
-#2e516e
-
-);
-
+border:1px solid #d2d2d7;
 
 box-shadow:
 
-0 120px 200px rgba(0,0,0,.6),
-
-0 40px 80px rgba(0,0,0,.4),
-
-inset 0 2px 4px rgba(255,255,255,.7),
-
-inset 0 -10px 20px rgba(0,0,0,.4);
+0 30px 60px rgba(0,0,0,0.15);
 
 }
 
 
-
-/* metal edge */
-
-.ipad:before{
-
-content:"";
-
-position:absolute;
-
-inset:6px;
-
-border-radius:42px;
-
-background:linear-gradient(
-
-180deg,
-
-rgba(255,255,255,.6),
-
-rgba(255,255,255,.1),
-
-rgba(255,255,255,.3)
-
-);
-
-}
-
-
-
-/* bottom shadow */
-
-.ipad:after{
-
-content:"";
-
-position:absolute;
-
-left:-10px;
-
-right:-10px;
-
-bottom:-20px;
-
-height:30px;
-
-background:radial-gradient(
-
-ellipse at center,
-
-rgba(0,0,0,.5),
-
-transparent
-
-);
-
-filter:blur(10px);
-
-}
-
-
-
-/* camera */
-
-.ipad-camera{
-
-position:absolute;
-
-top:14px;
-
-left:50%;
-
-transform:translateX(-50%);
-
-width:10px;
-
-height:10px;
-
-border-radius:50%;
-
-background:radial-gradient(#777,#111);
-
-z-index:5;
-
-}
-
-
-
-/* screen */
+/* Screen */
 
 .ipad-screen{
 
 background:black;
 
-border-radius:34px;
+border-radius:24px;
 
 overflow:hidden;
 
-position:relative;
-
-box-shadow:
-
-inset 0 0 0 1px rgba(255,255,255,.1),
-
-inset 0 40px 60px rgba(0,0,0,.8);
-
 }
-
-
-
-/* reflection */
-
-.ipad-screen:before{
-
-content:"";
-
-position:absolute;
-
-top:-40%;
-
-left:-60%;
-
-width:200%;
-
-height:80%;
-
-background:linear-gradient(
-
-120deg,
-
-rgba(255,255,255,.45),
-
-transparent
-
-);
-
-}
-
-
-
-/* reflection 2 */
-
-.ipad-screen:after{
-
-content:"";
-
-position:absolute;
-
-bottom:-30%;
-
-left:-20%;
-
-width:140%;
-
-height:60%;
-
-background:linear-gradient(
-
-to top,
-
-rgba(255,255,255,.15),
-
-transparent
-
-);
-
-}
-
 
 
 .ipad-screen img{
@@ -376,48 +256,39 @@ display:block;
 
 
 
-
-/* ===============================
-3D ANGLE
-=============================== */
+/* Soft depth */
 
 .angled{
 
 transform:
 
-perspective(2400px)
+perspective(1400px)
 
-rotateY(-18deg)
+rotateY(-8deg)
 
-rotateX(6deg)
+rotateX(3deg);
 
-rotateZ(-2deg);
-
-transition:1s;
+transition:.6s;
 
 }
-
 
 .angled:hover{
 
 transform:
 
-perspective(2400px)
+perspective(1400px)
 
-rotateY(-10deg)
+rotateY(-4deg)
 
-rotateX(3deg)
+rotateX(1deg)
 
-translateY(-12px);
+translateY(-6px);
 
 }
 
 
 
-
-/* ===============================
-SKILLS
-=============================== */
+/* Skills */
 
 .skills{
 
@@ -429,25 +300,23 @@ repeat(auto-fit,minmax(220px,1fr));
 
 gap:24px;
 
-margin-top:50px;
+margin-top:48px;
 
 }
 
 .skill{
 
-border:1px solid #333;
-
-padding:24px;
+border:1px solid var(--line);
 
 border-radius:20px;
+
+padding:24px;
 
 }
 
 
 
-/* ===============================
-CERTIFICATES
-=============================== */
+/* Certificates */
 
 .certificates{
 
@@ -459,25 +328,23 @@ repeat(auto-fit,minmax(280px,1fr));
 
 gap:24px;
 
-margin-top:50px;
+margin-top:48px;
 
 }
 
 .certificate{
 
-border:1px solid #333;
-
-padding:24px;
+border:1px solid var(--line);
 
 border-radius:20px;
+
+padding:24px;
 
 }
 
 
 
-/* ===============================
-FOOTER
-=============================== */
+/* Footer */
 
 footer{
 
@@ -488,9 +355,8 @@ text-align:center;
 }
 
 
-/* ===============================
-MOBILE
-=============================== */
+
+/* Mobile */
 
 @media(max-width:900px){
 
@@ -510,9 +376,9 @@ transform:none;
 
 }
 
-
 </style>
 </head>
+
 
 
 <body>
@@ -529,7 +395,7 @@ Ajmin Fayaz
 
 </div>
 
-<div>
+<div class="nav-links">
 
 <a href="#work">Work</a>
 
@@ -547,7 +413,6 @@ Ajmin Fayaz
 
 
 
-
 <section class="hero">
 
 <div class="container">
@@ -560,11 +425,11 @@ Designing digital experiences that feel effortless.
 
 <p>
 
-UI/UX Designer crafting high-fidelity products.
+UI/UX Designer crafting high-fidelity products across travel, cinema, e-commerce, and real estate.
 
 </p>
 
-<a class="btn" href="#work">
+<a href="#work" class="btn">
 
 View Case Studies
 
@@ -576,9 +441,7 @@ View Case Studies
 
 
 
-
 <div class="divider"></div>
-
 
 
 
@@ -592,28 +455,23 @@ View Case Studies
 
 <div class="ipad angled">
 
-<div class="ipad-camera"></div>
-
 <div class="ipad-screen">
 
-<img src="travel.jpg">
+<img src="./travel.jpg">
 
 </div>
 
 </div>
-
 
 <div>
 
-<h3>
-
-Unified Travel Experience
-
-</h3>
+<h3>Lofio — A Unified Travel Experience</h3>
 
 <p>
 
-Transparent booking flow.
+<strong>Key Feature:</strong>
+
+Transparent linear booking flow.
 
 </p>
 
@@ -631,15 +489,13 @@ Transparent booking flow.
 
 <div>
 
-<h3>
-
-Cinema Booking UX
-
-</h3>
+<h3>Upside — The Cinematic Booking Experience</h3>
 
 <p>
 
-Real time summary panel.
+<strong>Key Feature:</strong>
+
+Real-time anchor summary panel.
 
 </p>
 
@@ -647,11 +503,9 @@ Real time summary panel.
 
 <div class="ipad angled">
 
-<div class="ipad-camera"></div>
-
 <div class="ipad-screen">
 
-<img src="movie.jpg">
+<img src="./movie.jpg">
 
 </div>
 
@@ -669,11 +523,9 @@ Real time summary panel.
 
 <div class="ipad angled">
 
-<div class="ipad-camera"></div>
-
 <div class="ipad-screen">
 
-<img src="com.jpg">
+<img src="./com.jpg">
 
 </div>
 
@@ -681,17 +533,49 @@ Real time summary panel.
 
 <div>
 
-<h3>
-
-Chocolate App UX
-
-</h3>
+<h3>Choco Box — Premium Confectionery App</h3>
 
 <p>
 
-Taste based discovery.
+<strong>Key Feature:</strong>
+
+Taste-based recommendations.
 
 </p>
+
+</div>
+
+</div>
+
+
+
+<div class="divider"></div>
+
+
+
+<div class="case">
+
+<div>
+
+<h3>Lofio Real Estate — Immersive Discovery</h3>
+
+<p>
+
+<strong>Key Feature:</strong>
+
+Virtual tours & rating systems.
+
+</p>
+
+</div>
+
+<div class="ipad angled">
+
+<div class="ipad-screen">
+
+<img src="./real.jpg">
+
+</div>
 
 </div>
 
@@ -702,7 +586,6 @@ Taste based discovery.
 </div>
 
 </section>
-
 
 
 
@@ -712,28 +595,29 @@ Taste based discovery.
 
 <h2>
 
-Skills
+What I Specialize In
 
 </h2>
 
 <div class="skills">
 
-<div class="skill">UX Research</div>
+<div class="skill">UX Strategy & Research</div>
 
-<div class="skill">UI Design</div>
+<div class="skill">Visual & Interaction Design</div>
 
-<div class="skill">Figma</div>
+<div class="skill">Responsive Design Systems</div>
 
-<div class="skill">Design Systems</div>
+<div class="skill">High-Conversion Flows</div>
 
-<div class="skill">Prototyping</div>
+<div class="skill">Dark-Mode Interfaces</div>
+
+<div class="skill">Figma Prototyping</div>
 
 </div>
 
 </div>
 
 </section>
-
 
 
 
@@ -743,7 +627,7 @@ Skills
 
 <h2>
 
-Certificates
+Certifications
 
 </h2>
 
@@ -751,13 +635,17 @@ Certificates
 
 <div class="certificate">
 
-Google UX Certificate
+<h4>Google UX Design Professional Certificate</h4>
+
+<p>Google · Coursera</p>
 
 </div>
 
 <div class="certificate">
 
-Coursera Design
+<h4>Create & Design Digital Products using Canva</h4>
+
+<p>Coursera Project Network</p>
 
 </div>
 
@@ -769,18 +657,17 @@ Coursera Design
 
 
 
-
 <footer id="contact">
 
 <h2>
 
-Contact
+Let’s build something thoughtful.
 
 </h2>
 
 <p>
 
-fayazajmin@gmail.com
+fayazajmin@gmail.com · Kollam · Open to relocation
 
 </p>
 
@@ -788,7 +675,7 @@ fayazajmin@gmail.com
 
 href="mailto:fayazajmin@gmail.com">
 
-Email Me
+Contact Me
 
 </a>
 
